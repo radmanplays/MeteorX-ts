@@ -1,11 +1,11 @@
 {
-  "name": "reborn-example-plugin",
+  "name": "meteorx",
   "version": "1.0.0",
-  "description": "example typescript plugin for Eagler Reborn",
+  "description": "a hacked client made with eagler reborn's plugin api",
   "scripts": {
     "build": "webpack"
   },
-  "author": "OtterDev",
+  "author": "radmanplays",
   "devDependencies": {
     "ts-loader": "^9.4.4",
     "typescript": "^5.2.2",
