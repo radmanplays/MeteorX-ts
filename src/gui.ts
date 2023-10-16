@@ -8,7 +8,7 @@ export function registergui() {
       } else {
           showGui(); // Otherwise, show the GUI
       }
-  }
+    }
 
   function showGui() { // Function to show the GUI
       hideGui(); // If the GUI is already open, this will hide it.
@@ -24,13 +24,13 @@ export function registergui() {
           </tr>
           <tr style="box-shadow: grey 0px 2px 0px;">
               <td style="user-select: text;background-color: #9d00ff30;">Jetpack (hold space to fly) 🎒💨</td>
-              <td style="background-color: gray; text-align: center;">Activate</td>
+              <td style="background-color: gray; text-align: center;" id="jetpack">Activate</td>
           </tr>
       </tbody></table>
       <a style="background: transparent; text-align: center; color: yellow; cursor: pointer; font-family: Minecraftia, sans-serif; text-decoration: underline; border: 0px; margin-right: 1rem; font-size: 1rem;" href="https://github.com/radmanplays/MeteorX/issues/new" target="_blank">suggest a new feature/hack</a>
       <a style="background: transparent;text-align: center;color: orange;cursor: pointer;font-family: Minecraftia, sans-serif;text-decoration: underline;border: 0px;font-size: 1rem;" href="https://github.com/orgs/EaglerReborn/discussions/9" target="_blank">version Roadmap</a>
       
-  </gui>
+        </gui>
       `; // Set the HTML content of the "gui" element
       gui.id = "myGui"; // Set the ID of the "gui" element to "myGui"
       gui.style.width = '100%';
@@ -47,7 +47,37 @@ export function registergui() {
       gui.style.backgroundSize = '64px';
       document.body.appendChild(gui); // Append the "gui" element to the body of the document
       guiVisible = true; // Set the GUI visibility to true
-  }
+      var jetpackElement = document.getElementById("jetpack");
+      jetpackElement.addEventListener("mouseover", function() {
+        jetpackElement.style.cursor = "pointer";
+      });
+      if (jetpackguiactive === false) {
+        jetpackElement.innerText = "Activate";
+        jetpackElement.style.backgroundColor = "green";
+        }
+      if (jetpackguiactive === true) {
+        jetpackElement.innerText = "Deactivate";
+        jetpackElement.style.backgroundColor = "red";
+        }
+      jetpackElement.addEventListener("click", function() {
+        // Toggle the jetpackGuiActive state
+    
+        // Update the text and background color based on the state
+        if (jetpackguiactive === true) {
+            jetpackElement.innerText = "Activate";
+            jetpackElement.style.backgroundColor = "green";
+            jetpackguiactive = false;
+        }
+        if (jetpackguiactive === false) {
+            jetpackElement.innerText = "Deactivate";
+            jetpackElement.style.backgroundColor = "red";
+            jetpackguiactive = true;
+        }
+        
+      });
+    }
+    
+
 
   function hideGui() { // Function to hide the GUI
       if (document.getElementById("myGui")) { // If the "myGui" element exists
@@ -64,5 +94,5 @@ export function registergui() {
       if (event.key === "Escape") { // If the Escape key is pressed
           hideGui(); // Hide the GUI
       }
-  });
+    });
 }

@@ -4,6 +4,7 @@ import { registerSpider } from "./spider"
 import { registerStep } from "./step"
 import { registerjetpack } from "./jetpack"
 console.log("[MetorX] Loading client...")
+var jetpackguiactive = false;
 registergui()
-registerjetpack
+registerjetpack()
 console.log("[MeteorX] Finished!")
