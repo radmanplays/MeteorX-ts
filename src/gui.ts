@@ -1,5 +1,5 @@
 import { displayToChat } from "./chat"
-export function registergui() {
+export function registergui(jetpackguiactive) {
   var guiVisible = false; // Variable to keep track of the visibility of the GUI
 
   function toggleGui() { // Function to toggle the GUI visibility
@@ -63,16 +63,15 @@ export function registergui() {
         // Toggle the jetpackGuiActive state
     
         // Update the text and background color based on the state
-        if (jetpackguiactive === true) {
-            jetpackElement.innerText = "Activate";
-            jetpackElement.style.backgroundColor = "green";
-            jetpackguiactive = false;
-        }
-        if (jetpackguiactive === false) {
-            jetpackElement.innerText = "Deactivate";
-            jetpackElement.style.backgroundColor = "red";
-            jetpackguiactive = true;
-        }
+        if (jetpackguiactive !== true) {
+          jetpackElement.innerText = "Deactivate";
+          jetpackElement.style.backgroundColor = "red";
+          jetpackguiactive = true;
+      } else {
+          jetpackElement.innerText = "Activate";
+          jetpackElement.style.backgroundColor = "green";
+          jetpackguiactive = false;
+      }
         
       });
     }

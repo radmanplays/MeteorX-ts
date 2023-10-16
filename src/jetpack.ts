@@ -1,5 +1,5 @@
 import { displayToChat } from "./chat"
-export function registerjetpack() {
+export function registerjetpack(jetpackguiactive) {
     //@ts-ignore
     PluginAPI.require("player");
     var jetpackActive = false;
@@ -15,16 +15,14 @@ export function registerjetpack() {
     });
     //@ts-ignore
     PluginAPI.addEventListener("update", ()=>{
-    if(!jetpackActive){
-    return;
-    }
-    //@ts-ignore
     if (jetpackguiactive === false) {
-        return;
-    }
-    //@ts-ignore
-    PluginAPI.player.motionY += 0.2;
-    //@ts-ignore
-    PluginAPI.player.reload()
+        if(!jetpackActive){
+            return;
+            }
+            //@ts-ignore
+            PluginAPI.player.motionY += 0.2;
+            //@ts-ignore
+            PluginAPI.player.reload()
+        }
     });
 }
