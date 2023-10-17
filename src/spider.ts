@@ -19,9 +19,9 @@ export function registerSpider() {
     if (event.key == 22) {
       spiderToggle = !spiderToggle
       if (spiderToggle == true) {
-        displayToChat("§d§l[METEORX] §r§eEnabled spider.")
+        displayToChat("§d§l[MeteorX] §r§eEnabled spider.")
       } else {
-        displayToChat("§d§l[METEORX] §r§eDisabled spider.")
+        displayToChat("§d§l[MeteorX] §r§eDisabled spider.")
       }
     }
   })
