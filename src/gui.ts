@@ -33,7 +33,7 @@ export function registergui(jetpackguiactive) {
               <td style="background-color: gray; text-align: center;" id="jetpack">Activate</td>
           </tr>
           <tr style="box-shadow: grey 0px 2px 0px;">
-              <td style="user-select: text;background-color: #9d00ff30;">Step🪜</td>
+              <td style="user-select: text;background-color: #9d00ff30;">Step</td>
               <td style="background-color: gray; text-align: center;" id="step">Activate</td>
           </tr>
       </tbody></table>
