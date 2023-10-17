@@ -16,17 +16,17 @@ export function registerStep() {
             PluginAPI.player.reload();
         }
       });
-      // @ts-ignore
-      PluginAPI.addEventListener("key", (event)=>{
-        if (event.key == 47) {
-            stepToggle = !stepToggle;
-            if (stepToggle == true) {
-                displayToChat("§d§l[MeteorX] §r§eEnabled step.")
-            } else {
-                displayToChat("§d§l[MeteorX] §r§eDisabled step.")
-            }
-        }
-      })
+      // @ts-ignore 
+      //PluginAPI.addEventListener("key", (event)=>{ comment out code radman likely won't use
+        //if (event.key == 47) {
+          //  stepToggle = !stepToggle;
+           // if (stepToggle == true) {
+             //   displayToChat("§d§l[MeteorX] §r§eEnabled step.")
+           // } else {
+            //    displayToChat("§d§l[MeteorX] §r§eDisabled step.")
+           // }
+       // }
+    //  })
 }
 export function setStepToggle(theBoolean: boolean) {
     stepToggle = theBoolean; // yw radman :3

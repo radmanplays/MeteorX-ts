@@ -15,18 +15,18 @@ export function registerSpider() {
     }
   });
   // @ts-ignore
-  PluginAPI.addEventListener("key", (event) => {
+  //PluginAPI.addEventListener("key", (event) => {
     //@ ts-ignore
-    if (event.key == 22) {
-      spiderToggle = !spiderToggle
-      if (spiderToggle == true) {
-        displayToChat("§d§l[MeteorX] §r§eEnabled spider.")
-      } else {
-        displayToChat("§d§l[MeteorX] §r§eDisabled spider.")
-      }
+    //if (event.key == 22) {
+      //spiderToggle = !spiderToggle
+      //if (spiderToggle == true) {
+        //displayToChat("§d§l[MeteorX] §r§eEnabled spider.")
+      //} else {
+        //displayToChat("§d§l[MeteorX] §r§eDisabled spider.")
+      //}
     }
-  })
-}
+  //})
+//}
 export function setSpiderToggle(theBoolean: boolean) {
   spiderToggle = theBoolean; // yw radman :3
 }
