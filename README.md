@@ -1,4 +1,6 @@
 # MeteorX
+![Capture2](https://github.com/radmanplays/MeteorX-ts/assets/95340057/eaf32904-b340-4ccf-b846-3262da227f06)
+
 #### a hacked client made with eagler reborn's plugin api
 
 # installing the client
@@ -11,6 +13,7 @@
 5. click on "plugin"
 6. click on "upload..."
 7. Optional: Refresh the GUI to see if the plugin loaded correctly.
+8. press "right shift" to open the gui
 ## compiling the client
 Just do `npm i` in order to install dependencies, then `npm run build` to build into a single file located in the build folder. 
 Typescript *might* complain about the plugin API not being defined, but will build anyway. Do not worry about this.
