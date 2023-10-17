@@ -22,7 +22,7 @@ export function registergui(jetpackguiactive) {
       gui.innerHTML =`
       <gui id="myGui" style="width: 100%;height: 100%;position: fixed;top: 0px;left: 0px;z-index: 10;color: white;font-family: Minecraftia, sans-serif;overflow: hidden scroll;background-color: rgba(80, 80, 80, 0.42);background-blend-mode: multiply;background-size: 64px;">
       <h1 style="text-shadow: 0px 0px 4px;">MeteorX GUI</h1>
-      <p style="font-size: 0.8rem; color: yellow;">(totally not stollen from plugin manager's gui)</p><p style="font-size: 0.8rem; color: yellow;">ik the gui looks kinda bad for a hacked client but its meteorX alpha ig. i WILL update this gui in the future</p><p style="font-size: 0.8rem; color: orangered;">click on "Activate" to activate a hack and click on "Deactivate" to deactivate a hack</p>
+      <p style="font-size: 0.8rem; color: yellow;">(totally not stolen from plugin manager's gui)</p><p style="font-size: 0.8rem; color: yellow;">ik the gui looks kinda bad for a hacked client but its meteorX alpha ig. i WILL update this gui in the future</p><p style="font-size: 0.8rem; color: orangered;">click on "Activate" to activate a hack and click on "Deactivate" to deactivate a hack</p>
       <table style="table-layout: fixed; width: 100%;">
           <tbody><tr style="background: rgb(80, 80, 80);">
               <th style="text-align: center;">Hacks</th>
