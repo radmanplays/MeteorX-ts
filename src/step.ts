@@ -1,6 +1,7 @@
 import { displayToChat } from "./chat"
+let stepToggle: boolean = false;
 export function registerStep() {
-    let stepToggle: boolean = false;
+    
     // @ts-ignore
     PluginAPI.addEventListener("update", ()=>{
         if (stepToggle == true) {
@@ -15,15 +16,18 @@ export function registerStep() {
             PluginAPI.player.reload();
         }
       });
-      // @ts-ignore
-      PluginAPI.addEventListener("key", (event)=>{
-        if (event.key == 47) {
-            stepToggle = !stepToggle;
-            if (stepToggle == true) {
-                displayToChat("§6§l[REBORNHACKEDCLIENT] §r§eEnabled step.")
-            } else {
-                displayToChat("§6§l[REBORNHACKEDCLIENT] §r§eDisabled step.")
-            }
-        }
-      })
+      // @ts-ignore 
+      //PluginAPI.addEventListener("key", (event)=>{ comment out code radman likely won't use
+        //if (event.key == 47) {
+          //  stepToggle = !stepToggle;
+           // if (stepToggle == true) {
+             //   displayToChat("§d§l[MeteorX] §r§eEnabled step.")
+           // } else {
+            //    displayToChat("§d§l[MeteorX] §r§eDisabled step.")
+           // }
+       // }
+    //  })
+}
+export function setStepToggle(theBoolean: boolean) {
+    stepToggle = theBoolean; // yw radman :3
 }

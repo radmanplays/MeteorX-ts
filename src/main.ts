@@ -7,4 +7,6 @@ var jetpackguiactive = false;
 console.log("[MeteorX] Loading client...")
 registergui(jetpackguiactive)
 registerjetpack(jetpackguiactive)
+registerSpider()
+registerStep()
 console.log("[MeteorX] Finished!")
