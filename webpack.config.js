@@ -8,7 +8,7 @@ module.exports = {
     main: "./src/main.ts",
   },
   output: {
-    path: path.resolve(__dirname, './build'),
+    path: path.resolve(__dirname, './latest_build'),
     filename: package.name + ".js", // <--- Will be compiled to this single file
   },
   resolve: {
