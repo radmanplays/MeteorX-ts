@@ -26,7 +26,7 @@ export function registergui(jetpackguiactive) {
       <table style="table-layout: fixed; width: 100%;">
           <tbody><tr style="background: rgb(80, 80, 80);">
               <th style="text-align: center;">hax</th>
-              <th style="text-align: center; width: 15%;">active/deactive</th>
+              <th style="text-align: center; width: 15%;">activated/deactivated</th>
           </tr>
           <tr style="box-shadow: grey 0px 2px 0px;">
               <td style="user-select: text;background-color: #9d00ff30;">Jetpack (hold space to fly) 🎒💨</td>
