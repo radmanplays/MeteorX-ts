@@ -20,9 +20,9 @@ export function registerStep() {
         if (event.key == 47) {
             stepToggle = !stepToggle;
             if (stepToggle == true) {
-                displayToChat("§6§l[REBORNHACKEDCLIENT] §r§eEnabled step.")
+                displayToChat("§d§l[METEORX] §r§eEnabled step.")
             } else {
-                displayToChat("§6§l[REBORNHACKEDCLIENT] §r§eDisabled step.")
+                displayToChat("§d§l[METEORX] §r§eDisabled step.")
             }
         }
       })
