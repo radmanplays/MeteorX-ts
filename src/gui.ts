@@ -1,5 +1,6 @@
 import { displayToChat } from "./chat"
 import { setStepToggle, returnStepToggle } from "./step";
+import { setSpiderToggle, returnSpiderToggle } from "./spider";
 export function registergui(jetpackguiactive) {
   var guiVisible = false; // Variable to keep track of the visibility of the GUI
 
@@ -36,6 +37,10 @@ export function registergui(jetpackguiactive) {
               <td style="user-select: text;background-color: #9d00ff30;">Step</td>
               <td style="background-color: gray; text-align: center;" id="step">Activate</td>
           </tr>
+          <tr style="box-shadow: grey 0px 2px 0px;">
+              <td style="user-select: text;background-color: #9d00ff30;">Spider</td>
+              <td style="background-color: gray; text-align: center;" id="spider">Activate</td>
+          </tr>
       </tbody></table>
       <a style="background: transparent; text-align: center; color: yellow; cursor: pointer; font-family: Minecraftia, sans-serif; text-decoration: underline; border: 0px; margin-right: 1rem; font-size: 1rem;" href="https://github.com/radmanplays/MeteorX/issues/new" target="_blank">suggest a new feature/hack</a>
       <a style="background: transparent;text-align: center;color: orange;cursor: pointer;font-family: Minecraftia, sans-serif;text-decoration: underline;border: 0px;font-size: 1rem;" href="https://github.com/orgs/EaglerReborn/discussions/9" target="_blank">version Roadmap</a>
@@ -59,11 +64,15 @@ export function registergui(jetpackguiactive) {
       guiVisible = true; // Set the GUI visibility to true
       var jetpackElement = document.getElementById("jetpack");
       var stepElement = document.getElementById("step");
+      var spiderElement = document.getElementById("spider");
       jetpackElement.addEventListener("mouseover", function() {
         jetpackElement.style.cursor = "pointer";
       });
       stepElement.addEventListener("mouseover", function() {
         stepElement.style.cursor = "pointer";
+      })
+      spiderElement.addEventListener("mouseover", function() {
+        spiderElement.style.cursor = "pointer";
       })
       if (jetpackguiactive === false) {
         jetpackElement.innerText = "Activate";
@@ -73,6 +82,10 @@ export function registergui(jetpackguiactive) {
         stepElement.innerText = "Activate";
         stepElement.style.backgroundColor = "green";
       }
+      if (returnSpiderToggle() === false) {
+        spiderElement.innerText = "Activate";
+        spiderElement.style.backgroundColor = "green";
+      }
       if (jetpackguiactive === true) {
         jetpackElement.innerText = "Deactivate";
         jetpackElement.style.backgroundColor = "red";
@@ -80,6 +93,10 @@ export function registergui(jetpackguiactive) {
       if (returnStepToggle() === true) {
         stepElement.innerText = "Deactivate";
         stepElement.style.backgroundColor = "red";
+      }
+      if (returnSpiderToggle() === true) {
+        spiderElement.innerText = "Deactivate";
+        spiderElement.style.backgroundColor = "red";
       }
       stepElement.addEventListener("click", function(){
         if (returnStepToggle() !== true) {
@@ -90,6 +107,17 @@ export function registergui(jetpackguiactive) {
           stepElement.innerText = "Activate";
           stepElement.style.backgroundColor = "green";
           setStepToggle(false);
+        }
+      })
+      spiderElement.addEventListener("click", function() {
+        if (returnSpiderToggle() !== true) {
+          spiderElement.innerText = "Deactivate";
+          spiderElement.style.backgroundColor = "red";
+          setSpiderToggle(true);
+        } else {
+          spiderElement.innerText = "Activate";
+          spiderElement.style.backgroundColor = "green";
+          setSpiderToggle(false);
         }
       })
       jetpackElement.addEventListener("click", function() {
