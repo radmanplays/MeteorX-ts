@@ -31,3 +31,6 @@ export function registerStep() {
 export function setStepToggle(theBoolean: boolean) {
     stepToggle = theBoolean; // yw radman :3
 }
+export function returnStepToggle(): boolean {
+    return stepToggle;
+}

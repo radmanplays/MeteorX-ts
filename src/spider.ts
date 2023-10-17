@@ -30,3 +30,6 @@ export function registerSpider() {
 export function setSpiderToggle(theBoolean: boolean) {
   spiderToggle = theBoolean; // yw radman :3
 }
+export function returnSpiderToggle(): boolean {
+  return spiderToggle;
+}
