@@ -12,10 +12,13 @@
 
 4. launch the latest version of compiled eagler reborn
 5. click on "options"
-6. click on "plugin"
-7. click on "upload..."
-8. Optional: Refresh the GUI to see if the plugin loaded correctly.
-9. press "right shift" to open the gui
+   
+![Capture](https://github.com/radmanplays/MeteorX-ts/assets/95340057/61756d5b-588a-4a69-944a-fbb99c4005f7)
+
+7. click on "plugin"
+8. click on "upload..."
+9. Optional: Refresh the GUI to see if the plugin loaded correctly.
+10. press "right shift" to open the gui
 ## compiling the client
 Just do `npm i` in order to install dependencies, then `npm run build` to build into a single file located in the build folder. 
 Typescript *might* complain about the plugin API not being defined, but will build anyway. Do not worry about this.
