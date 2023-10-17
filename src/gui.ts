@@ -152,8 +152,8 @@ export function registergui(jetpackguiactive) {
           toggleGui(); // Toggle the GUI visibility
       }
       
-      if (event.key === "Escape") { // If the Escape key is pressed
-          hideGui(); // Hide the GUI
+      if (event.key === "Escape" || event.key === "`") { // If the Escape key or backtick is pressed
+        hideGui(); // Hide the GUI
       }
     });
 }
