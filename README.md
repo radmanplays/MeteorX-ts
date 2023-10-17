@@ -6,6 +6,7 @@
 # installing the client
 1. this client is made with eagler reborn's plugin api so you need to [compile the latest version of eagler reborn](https://eaglerreborn.github.io/guide/#actually-compiling-the-client)
 2. download the latest version of the client by going to [this link](https://github.com/radmanplays/MeteorX-ts/blob/main/latest_build/meteorx.js) and clicking on "download"
+
 ![Capture](https://github.com/radmanplays/MeteorX-ts/assets/95340057/ae6544bd-44f0-46e3-970f-5853e4f071d6)
 
 
