@@ -1,6 +1,7 @@
 import { displayToChat } from "./chat"
+let spiderToggle: boolean = false;
 export function registerSpider() {
-  let spiderToggle: boolean = false;
+  
   // @ts-ignore
   PluginAPI.require("player");
   // @ts-ignore
@@ -25,4 +26,7 @@ export function registerSpider() {
       }
     }
   })
+}
+export function setSpiderToggle(theBoolean: boolean) {
+  spiderToggle = theBoolean; // yw radman :3
 }

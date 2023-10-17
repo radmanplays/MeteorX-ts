@@ -1,6 +1,7 @@
 import { displayToChat } from "./chat"
+let stepToggle: boolean = false;
 export function registerStep() {
-    let stepToggle: boolean = false;
+    
     // @ts-ignore
     PluginAPI.addEventListener("update", ()=>{
         if (stepToggle == true) {
@@ -26,4 +27,7 @@ export function registerStep() {
             }
         }
       })
+}
+export function setStepToggle(theBoolean: boolean) {
+    stepToggle = theBoolean; // yw radman :3
 }
