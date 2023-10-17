@@ -25,8 +25,8 @@ export function registergui(jetpackguiactive) {
       <p style="font-size: 0.8rem; color: yellow;">(totally not stollen from plugin manager's gui)</p><p style="font-size: 0.8rem; color: yellow;">ik the gui looks kinda bad for a hacked client but its meteorX alpha ig. i WILL update this gui in the future</p><p style="font-size: 0.8rem; color: orangered;">click on "Activate" to activate a hack and click on "Deactivate" to deactivate a hack</p>
       <table style="table-layout: fixed; width: 100%;">
           <tbody><tr style="background: rgb(80, 80, 80);">
-              <th style="text-align: center;">hax</th>
-              <th style="text-align: center; width: 15%;">activated/deactivated</th>
+              <th style="text-align: center;">Hacks</th>
+              <th style="text-align: center; width: 15%;">Activate/Deactivate</th>
           </tr>
           <tr style="box-shadow: grey 0px 2px 0px;">
               <td style="user-select: text;background-color: #9d00ff30;">Jetpack (hold space to fly) 🎒💨</td>
