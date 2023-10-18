@@ -1,5 +1,6 @@
+let jetpackguiactive: boolean = false;
 import { displayToChat } from "./chat"
-export function registerjetpack(jetpackguiactive) {
+export function registerjetpack() {
     //@ts-ignore
     PluginAPI.require("player");
     var jetpackActive = false;
@@ -15,7 +16,7 @@ export function registerjetpack(jetpackguiactive) {
     });
     //@ts-ignore
     PluginAPI.addEventListener("update", ()=>{
-    if (jetpackguiactive === false) {
+    if (jetpackguiactive == false) {
         if(!jetpackActive){
             return;
             }
@@ -25,4 +26,10 @@ export function registerjetpack(jetpackguiactive) {
             PluginAPI.player.reload()
         }
     });
+}
+export function setjetpacktoggle(theBoolean: boolean) {
+    jetpackguiactive = theBoolean;
+}
+export function returnjetpacktoggle(): boolean {
+    return jetpackguiactive;
 }

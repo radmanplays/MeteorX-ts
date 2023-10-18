@@ -10,8 +10,8 @@ import { registercmds } from "./cmds";
 var jetpackguiactive = false;
 console.log("[MeteorX] Loading client...")
 registercmds()
-registergui(jetpackguiactive)
-registerjetpack(jetpackguiactive)
+registergui()
+registerjetpack()
 registerSpider()
 registerStep()
 registerNofall()

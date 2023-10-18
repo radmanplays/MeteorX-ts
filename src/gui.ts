@@ -3,7 +3,8 @@ import { setStepToggle, returnStepToggle } from "./step";
 import { setSpiderToggle, returnSpiderToggle } from "./spider";
 import { setNofallToggle, returnNofallToggle } from "./nofall";
 import { setFullbrightToggle, returnFullbrightToggle } from "./fullbright";
-export function registergui(jetpackguiactive) {
+import { setjetpacktoggle, returnjetpacktoggle } from "./jetpack";
+export function registergui() {
   var guiVisible = false; // Variable to keep track of the visibility of the GUI
 
   function toggleGui() { // Function to toggle the GUI visibility
@@ -92,7 +93,7 @@ export function registergui(jetpackguiactive) {
       fullbrightElement.addEventListener("mouseover", function() {
         fullbrightElement.style.cursor = "pointer";
       })
-      if (jetpackguiactive === false) {
+      if (returnjetpacktoggle() === false) {
         jetpackElement.innerText = "Activate";
         jetpackElement.style.backgroundColor = "green";
         }
@@ -112,7 +113,7 @@ export function registergui(jetpackguiactive) {
         fullbrightElement.innerText = "Activate";
         fullbrightElement.style.backgroundColor = "green";
       }
-      if (jetpackguiactive === true) {
+      if (returnjetpacktoggle() === true) {
         jetpackElement.innerText = "Deactivate";
         jetpackElement.style.backgroundColor = "red";
         }
@@ -180,14 +181,14 @@ export function registergui(jetpackguiactive) {
         // Toggle the jetpackGuiActive state
     
         // Update the text and background color based on the state
-        if (jetpackguiactive !== true) {
+        if (returnjetpacktoggle() !== true) {
           jetpackElement.innerText = "Deactivate";
           jetpackElement.style.backgroundColor = "red";
-          jetpackguiactive = true;
+          setjetpacktoggle(true);
       } else {
           jetpackElement.innerText = "Activate";
           jetpackElement.style.backgroundColor = "green";
-          jetpackguiactive = false;
+          setjetpacktoggle(false);
       }
         
       });
