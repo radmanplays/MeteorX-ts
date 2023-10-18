@@ -23,7 +23,7 @@ export function registerbhop() {
         }
         //jump
         //@ts-ignore
-		PluginAPI.player.jump();
+	PluginAPI.player.jump();
         //@ts-ignore
         PluginAPI.player.reload();
         });
