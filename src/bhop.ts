@@ -7,19 +7,24 @@ export function registerbhop() {
     //@ts-ignore
     PluginAPI.addEventListener("update", ()=>{
         // check onGround
+        //@ts-ignore
         if (!PluginAPI.player.onground()) {
             return;
         }
         // check if sneaking
+        //@ts-ignore
         if (PluginAPI.player.isSneaking()) {
             return;
         }
         // check if moving
+        //@ts-ignore
         if (PluginAPI.player.moveForward == 0 && PluginAPI.player.moveStrafing == 0) {
             return;
         }
         //jump
+        //@ts-ignore
 		PluginAPI.player.jump();
-        PluginAPI.player.reload()
+        //@ts-ignore
+        PluginAPI.player.reload();
         });
 }
