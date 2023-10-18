@@ -1,10 +1,11 @@
 import { uwuify } from "./uwuapi";
 var version = "v1.0";
 var cmds = ".version , .help , .ip , .uwuify"
+var serverip = null;
 export function registercmds() {
     //@ts-ignore
     PluginAPI.addEventListener("packetjoingame", (ev) => {
-        var serverip = ev.ip;
+        serverip = ev.ip;
     });
     //@ts-ignore
     PluginAPI.addEventListener("sendchatmessage", function(event) {
