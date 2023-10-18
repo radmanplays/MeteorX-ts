@@ -31,7 +31,10 @@ export function registercmds() {
         }
         if (event.message.startsWith(".uwuify ")) {
             var messageAfter = event.message.substring(".example message ".length);
-            uwuify(messageAfter)
+            var uwumessage = uwuify(messageAfter)
+            //@ts-ignore
+            PluginAPI.network.sendPacketChatMessage({messageIn: uwumessage})
+
         }
     });
 }
