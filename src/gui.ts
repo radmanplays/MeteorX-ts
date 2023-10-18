@@ -2,6 +2,7 @@ import { displayToChat } from "./chat"
 import { setStepToggle, returnStepToggle } from "./step";
 import { setSpiderToggle, returnSpiderToggle } from "./spider";
 import { setNofallToggle, returnNofallToggle } from "./nofall";
+import { setFullbrightToggle, returnFullbrightToggle } from "./fullbright";
 export function registergui(jetpackguiactive) {
   var guiVisible = false; // Variable to keep track of the visibility of the GUI
 
@@ -46,6 +47,10 @@ export function registergui(jetpackguiactive) {
               <td style="user-select: text;background-color: #9d00ff30;">Nofall</td>
               <td style="background-color: gray; text-align: center;" id="nofall">Activate</td>
           </tr>
+          <tr style="box-shadow: grey 0px 2px 0px;">
+              <td style="user-select: text;background-color: #9d00ff30;">Fullbright</td>
+              <td style="background-color: gray; text-align: center;" id="fullbright">Activate</td>
+          </tr>
       </tbody></table>
       <a style="background: transparent; text-align: center; color: yellow; cursor: pointer; font-family: Minecraftia, sans-serif; text-decoration: underline; border: 0px; margin-right: 1rem; font-size: 1rem;" href="https://github.com/radmanplays/MeteorX/issues/new" target="_blank">suggest a new feature/hack</a>
       <a style="background: transparent;text-align: center;color: orange;cursor: pointer;font-family: Minecraftia, sans-serif;text-decoration: underline;border: 0px;font-size: 1rem;" href="https://github.com/orgs/EaglerReborn/discussions/9" target="_blank">version Roadmap</a>
@@ -71,6 +76,7 @@ export function registergui(jetpackguiactive) {
       var stepElement = document.getElementById("step");
       var spiderElement = document.getElementById("spider");
       var nofallElement = document.getElementById("nofall");
+      var fullbrightElement = document.getElementById("fullbright");
       jetpackElement.addEventListener("mouseover", function() {
         jetpackElement.style.cursor = "pointer";
       });
@@ -82,6 +88,9 @@ export function registergui(jetpackguiactive) {
       })
       nofallElement.addEventListener("mouseover", function() {
         nofallElement.style.cursor = "pointer";
+      })
+      fullbrightElement.addEventListener("mouseover", function() {
+        fullbrightElement.style.cursor = "pointer";
       })
       if (jetpackguiactive === false) {
         jetpackElement.innerText = "Activate";
@@ -99,6 +108,10 @@ export function registergui(jetpackguiactive) {
         nofallElement.innerText = "Activate";
         nofallElement.style.backgroundColor = "green";
       }
+      if (returnFullbrightToggle() === false) {
+        fullbrightElement.innerText = "Activate";
+        fullbrightElement.style.backgroundColor = "green";
+      }
       if (jetpackguiactive === true) {
         jetpackElement.innerText = "Deactivate";
         jetpackElement.style.backgroundColor = "red";
@@ -114,6 +127,10 @@ export function registergui(jetpackguiactive) {
       if (returnNofallToggle() === true) {
         nofallElement.innerText = "Deactivate";
         nofallElement.style.backgroundColor = "red";
+      }
+      if (returnFullbrightToggle() === true) {
+        fullbrightElement.innerText = "Deactivate";
+        fullbrightElement.style.backgroundColor = "red";
       }
       stepElement.addEventListener("click", function(){
         if (returnStepToggle() !== true) {
@@ -146,6 +163,17 @@ export function registergui(jetpackguiactive) {
           nofallElement.innerText = "Activate";
           nofallElement.style.backgroundColor = "green";
           setNofallToggle(false);
+        }
+      })
+      fullbrightElement.addEventListener("click", function() {
+        if (returnFullbrightToggle() !== true) {
+          fullbrightElement.innerText = "Deactivate";
+          fullbrightElement.style.backgroundColor = "red";
+          setFullbrightToggle(true);
+        } else {
+          fullbrightElement.innerText = "Activate";
+          fullbrightElement.style.backgroundColor = "green";
+          setFullbrightToggle(false);
         }
       })
       jetpackElement.addEventListener("click", function() {
