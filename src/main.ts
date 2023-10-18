@@ -6,8 +6,10 @@ import { registerNofall } from "./nofall"
 import { registerjetpack } from "./jetpack"
 import { registerFullbright } from "./fullbright"
 import { registerbhop } from "./bhop";
+import { registercmds } from "./cmds";
 var jetpackguiactive = false;
 console.log("[MeteorX] Loading client...")
+registercmds()
 registergui(jetpackguiactive)
 registerjetpack(jetpackguiactive)
 registerSpider()
