@@ -8,6 +8,7 @@ on:
 
 jobs:
   build:
+    permissions: write
     runs-on: ubuntu-latest
 
     strategy:
@@ -26,3 +27,5 @@ jobs:
       run: |
         npm install
         npx webpack
+    - name: Write changes to repository
+      uses: stefanzweifel/git-auto-commit-action@v4
