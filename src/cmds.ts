@@ -1,5 +1,5 @@
 import { uwuify } from "./uwuapi";
-import { MeteorXlog } from "./chatutils";
+import { MeteorXlog } from "./chatutilts";
 
 var version = "v1.0";
 var cmds = ".version , .help , .ip , .uwuify"
