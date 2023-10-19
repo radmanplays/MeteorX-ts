@@ -2,7 +2,7 @@ const path = require('path');
 const package = require('./package.json')
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   devtool: "inline-source-map",
   entry: {
     main: "./src/main.ts",
