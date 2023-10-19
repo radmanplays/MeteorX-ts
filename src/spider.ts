@@ -1,3 +1,4 @@
+//added by @OtterCodes102
 import { displayToChat } from "./chat"
 let spiderToggle: boolean = false;
 export function registerSpider() {

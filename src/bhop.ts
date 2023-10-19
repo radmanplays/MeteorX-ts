@@ -8,7 +8,7 @@ export function registerbhop() {
     PluginAPI.addEventListener("update", ()=>{
         // check onGround
         //@ts-ignore
-        if (!PluginAPI.player.onground()) {
+        if (!PluginAPI.player.onGround()) {
             return;
         }
         // check if sneaking

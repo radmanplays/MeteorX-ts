@@ -1,3 +1,4 @@
+//added by @OtterCodes102
 let fullbrightToggle: boolean = false;
 export function registerFullbright() {
     //@ts-ignore

@@ -1,3 +1,4 @@
+//added by @OtterCodes102
 import { displayToChat } from "./chat"
 let stepToggle: boolean = false;
 export function registerStep() {

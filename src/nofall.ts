@@ -1,3 +1,4 @@
+//added by @OtterCodes102
 let nofallToggle: boolean = false;
 export function registerNofall() {
     // @ts-ignore
