@@ -89,7 +89,7 @@ export function registergui() {
     for (i = 0; i < hacks.length; ++i) {
       hacks[i].addEventListener('mouseover', function () {
         hacks[i].style.cursor = 'pointer';
-      }) 
+      });
     } //adds the event to all hacks in a much shorter way
 
     if (returnjetpacktoggle() === false) {
