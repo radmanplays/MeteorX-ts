@@ -1,10 +1,11 @@
 export function registerwarning() {
+    //@ts-ignore
     PluginAPI.require("network");
     // these server are from https://radmanplays.github.io/serverlist/
     const servers = "wss://mc.arch.lol" || "wss://mc.asspixel.net/" || "wss://web.asspixel.net/CAP/" || "wss://sus.shhnowisnottheti.me" || "wss://mc.theludos.com" || "wss://zentic.cc" || "wss://venstone.ddns.net:8082" || "wss://aeon-network.net/1.8" || "wss://ggsmp.net/" || "wss://play.cerealnet.work" || "wss://flamemc.repl.co" || "wss://eagler.lbgaming.co" || "wss://legxndsmp.minecraft.pe" || "wss://asianf4rmer.minecraft.pe" || "wss://mc.amythest.lol" || "wss://endoria.play" || "wss://play.hybridmc.repl.co/" || "wss://mercurymc.net"
     //@ts-ignore
     PluginAPI.addEventListener("packetjoingame", (ev) => {
-        serverip = ev.ip;
+        var serverip = ev.ip;
         if (serverip = servers) {
             var div = document.createElement('div');
             div.id = 'GUI';
@@ -58,7 +59,7 @@ export function registerwarning() {
               `;
         
             // Set the styles for the div
-            div.style = `width:100%; height: 100%; position: fixed; top: 0; left: 0; z-index: 10; color: white; font-family: Minecraftia, sans-serif; overflow-x: hidden; background-image: url(data:image/png;base64,UklGRhoBAABXRUJQVlA4TA0BAAAvn8AnAIWjtpEECdnA2N0DsTROy7xUqfrWw0jbyLkJKTz0+I20jTT/Bo89e1YR/Wfktm0Y+wNKLobT7QP/n/B7Z/naW26QHoTpHB7LFouyKHlzeHxfCStSuj9KdbC8z1IJ5iWiyQed48vtYJ+lUu0t4VwranS1XMIutSiLYlbb8G54uf2p3VPSfRZtSrlsPFjOzZZrd/us3B3uK+HcHJQql+xbLMrS/WqNpm6DeZ/VIPVYaN/KzUbp91nd9xl5pYu50dU2W417nbdTj5l2Ne92uM9qXNpyf6+oXkabHKXaZ1HS4Iaqpim+1KIJ+0M49/LjNbTGP5mrrMZEuc7Uzcb1ViOJ6TuOt4NGJs+zDgA=); background-color: rgb(60,60,60); background-blend-mode: multiply; background-size: 64px;`;
+            div.style.all = `width:100%; height: 100%; position: fixed; top: 0; left: 0; z-index: 10; color: white; font-family: Minecraftia, sans-serif; overflow-x: hidden; background-image: url(data:image/png;base64,UklGRhoBAABXRUJQVlA4TA0BAAAvn8AnAIWjtpEECdnA2N0DsTROy7xUqfrWw0jbyLkJKTz0+I20jTT/Bo89e1YR/Wfktm0Y+wNKLobT7QP/n/B7Z/naW26QHoTpHB7LFouyKHlzeHxfCStSuj9KdbC8z1IJ5iWiyQed48vtYJ+lUu0t4VwranS1XMIutSiLYlbb8G54uf2p3VPSfRZtSrlsPFjOzZZrd/us3B3uK+HcHJQql+xbLMrS/WqNpm6DeZ/VIPVYaN/KzUbp91nd9xl5pYu50dU2W417nbdTj5l2Ne92uM9qXNpyf6+oXkabHKXaZ1HS4Iaqpim+1KIJ+0M49/LjNbTGP5mrrMZEuc7Uzcb1ViOJ6TuOt4NGJs+zDgA=); background-color: rgb(60,60,60); background-blend-mode: multiply; background-size: 64px;`;
         
             // Append the div to the end of the body tag
             document.body.appendChild(div);

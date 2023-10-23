@@ -18,16 +18,17 @@ export function registerjetpack() {
     });
     //@ts-ignore
     PluginAPI.addEventListener("update", ()=>{
-    if (jetpackguiactive == true) {
-        if (document.pointerLockElement != null) {
-            if(!jetpackActive){
-                return;
-            }
-                //@ts-ignore
-                PluginAPI.player.motionY += 0.2;
-                //@ts-ignore
-                PluginAPI.player.reload()
-            }
+        if (jetpackguiactive == true) {
+            if (document.pointerLockElement != null) {
+                if(!jetpackActive){
+                    return;
+                }
+                    //@ts-ignore
+                    PluginAPI.player.motionY += 0.2;
+                    //@ts-ignore
+                    PluginAPI.player.reload()
+                }
+        }
     });
 }
 export function setjetpacktoggle(theBoolean: boolean) {
