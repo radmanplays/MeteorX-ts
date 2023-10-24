@@ -6,7 +6,9 @@ export function registernoweb() {
     PluginAPI.addEventListener("update", ()=>{
         if (nowebToggle == true) {
             //@ts-ignore
-            PluginAPI.player.isInWeb = false
+            PluginAPI.player.isInWeb = false;
+            //@ts-ignore
+            PluginAPI.player.reload();
         }
     });
 }

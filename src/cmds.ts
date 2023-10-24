@@ -31,8 +31,8 @@ export function registercmds() {
             event.preventDefault = true;
         }
         if (event.message.startsWith(".uwuify ")) {
-            var messageAfter = event.message.substring(".uwuify ".length);
-            var uwumessage = uwuify("messageAfter")
+            var messageAfter = event.message.split('.uwuify ').pop();
+            var uwumessage = uwuify(messageAfter)
             //@ts-ignore
             PluginAPI.network.sendPacketChatMessage({messageIn: uwumessage})
 
