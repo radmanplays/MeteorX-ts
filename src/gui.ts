@@ -52,12 +52,10 @@ export function registergui() {
                 <td style="user-select: text;background-color: #9d00ff30;">Fullbright</td>
                 <td style="background-color: gray; text-align: center;" id="fullbright">Activate</td>
             </tr>
-            <!-- <tr style="box-shadow: grey 0px 2px 0px;"> -->
-            <!-- <td style="user-select: text;background-color: #9d00ff30;">NoWeb</td> -->
-            <!-- <td style="background-color: gray; text-align: center;" id="noweb">Activate</td> -->
-            <!-- </tr> -->
-            <!--removed bc it dosnt work -->
-            <!-- will add later if its fixed -->
+            <tr style="box-shadow: grey 0px 2px 0px;"> 
+            <td style="user-select: text;background-color: #9d00ff30;">NoWeb</td> 
+            <td style="background-color: gray; text-align: center;" id="noweb">Activate</td> 
+            </tr> 
         </tbody></table>
         <a style="background: transparent; text-align: center; color: yellow; cursor: pointer; font-family: Minecraftia, sans-serif; text-decoration: underline; border: 0px; margin-right: 1rem; font-size: 1rem;" href="https://github.com/radmanplays/MeteorX/issues/new" target="_blank">suggest a new feature/hack</a>
         <a style="background: transparent;text-align: center;color: orange;cursor: pointer;font-family: Minecraftia, sans-serif;text-decoration: underline;border: 0px;font-size: 1rem;" href="https://github.com/orgs/EaglerReborn/discussions/9" target="_blank">version Roadmap</a>
@@ -84,7 +82,7 @@ export function registergui() {
         var spiderElement = document.getElementById("spider");
         var nofallElement = document.getElementById("nofall");
         var fullbrightElement = document.getElementById("fullbright");
-        // var nowebElement = document.getElementById("noweb");
+        var nowebElement = document.getElementById("noweb");
         jetpackElement.addEventListener("mouseover", function() {
           jetpackElement.style.cursor = "pointer";
         });
@@ -100,9 +98,9 @@ export function registergui() {
         fullbrightElement.addEventListener("mouseover", function() {
           fullbrightElement.style.cursor = "pointer";
         })
-        //nowebElement.addEventListener("mouseover", function() {
-        //  nowebElement.style.cursor = "pointer";
-        //});
+        nowebElement.addEventListener("mouseover", function() {
+          nowebElement.style.cursor = "pointer";
+        });
         if (returnjetpacktoggle() === false) {
           jetpackElement.innerText = "Activate";
           jetpackElement.style.backgroundColor = "green";
@@ -123,9 +121,9 @@ export function registergui() {
           fullbrightElement.innerText = "Activate";
           fullbrightElement.style.backgroundColor = "green";
         }
-        //if (returnnowebToggle() === false) {
-        //  nowebElement.innerText = "Activate";
-        //  nowebElement.style.backgroundColor = "green";
+        if (returnnowebToggle() === false) {
+          nowebElement.innerText = "Activate";
+          nowebElement.style.backgroundColor = "green";
         //}
         if (returnjetpacktoggle() === true) {
           jetpackElement.innerText = "Deactivate";
@@ -147,11 +145,10 @@ export function registergui() {
           fullbrightElement.innerText = "Deactivate";
           fullbrightElement.style.backgroundColor = "red";
         }
-        /* if (returnnowebToggle() === true) {
+        if (returnnowebToggle() === true) {
           nowebElement.innerText = "Deactivate";
           nowebElement.style.backgroundColor = "red";
-          }
-        */
+        }
         stepElement.addEventListener("click", function(){
           if (returnStepToggle() !== true) {
             stepElement.innerText = "Deactivate";
@@ -207,7 +204,7 @@ export function registergui() {
             setjetpacktoggle(false);
           }
         });
-        /*nowebElement.addEventListener("click", function() {
+        nowebElement.addEventListener("click", function() {
           // Toggle the jetpackGuiActive state
       
           // Update the text and background color based on the state
@@ -220,7 +217,7 @@ export function registergui() {
             nowebElement.style.backgroundColor = "green";
             setnowebToggle(false);
         } 
-        });*/
+        });
       }
     }
     
