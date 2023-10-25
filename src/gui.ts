@@ -1,4 +1,4 @@
-import { displayToChat } from "./chat"
+import { displayToChat } from "./chat";
 import { setStepToggle, returnStepToggle } from "./step";
 import { setSpiderToggle, returnSpiderToggle } from "./spider";
 import { setNofallToggle, returnNofallToggle } from "./nofall";
@@ -124,7 +124,7 @@ export function registergui() {
         if (returnnowebToggle() === false) {
           nowebElement.innerText = "Activate";
           nowebElement.style.backgroundColor = "green";
-        //}
+        }
         if (returnjetpacktoggle() === true) {
           jetpackElement.innerText = "Deactivate";
           jetpackElement.style.backgroundColor = "red";
