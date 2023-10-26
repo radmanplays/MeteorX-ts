@@ -19,5 +19,5 @@ registerStep()
 registerNofall()
 registerFullbright()
 registertaco()
-displaytaco()
+displaytaco
 console.log("[MeteorX] Finished loading client!")
