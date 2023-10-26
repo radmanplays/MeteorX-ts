@@ -1,8 +1,9 @@
 import { uwuify } from "./uwuapi";
-import { MeteorXlog } from "./chatutilts";
+import { MeteorXlog } from "./chatutils";
+import { settacoToggle, returntacoToggle } from "./taco";
 
 var version = "v1.0";
-var cmds = ".version , .help , .ip , .uwuify"
+var cmds = ".version , .help , .ip , .uwuify , .taco"
 var serverip = null;
 export function registercmds() {
     //@ts-ignore
@@ -36,6 +37,25 @@ export function registercmds() {
             //@ts-ignore
             PluginAPI.network.sendPacketChatMessage({messageIn: uwumessage})
 
+        }
+        if (event.message === ".taco") {
+            if (returntacoToggle() !== true) {
+                var random = Math.floor(Math.random() * 3);
+                if (random == 1) {
+                    //@ts-ignore
+                    MeteorXlog("taco!");
+                }
+                if (random == 2) {
+                    //@ts-ignore
+                    MeteorXlog("a wild taco has appeared!");
+                }
+                settacoToggle(true);
+              } else {
+                //@ts-ignore
+                MeteorXlog("no taco :(");
+                settacoToggle(false);
+              }
+            event.preventDefault = true;
         }
     });
 }

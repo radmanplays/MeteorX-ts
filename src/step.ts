@@ -19,7 +19,7 @@ export function registerStep() {
       });
       // @ts-ignore 
       //PluginAPI.addEventListener("key", (event)=>{ comment out code radman likely won't use
-        //if (event.key == 47) {
+        //if (event.key == 47) { 
           //  stepToggle = !stepToggle;
            // if (stepToggle == true) {
              //   displayToChat("§d§l[MeteorX] §r§eEnabled step.")
