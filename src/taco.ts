@@ -22,7 +22,7 @@ export function displaytaco() {
                 </taco>
                 `; // Set the HTML content of the "gui" element
                 taco.id = "dancingtaco";
-                taco.style.zIndex = '10';
+                taco.style.zIndex = '100';
                 } else {
                     if (document.getElementById("dancingtaco")) { // If the "myGui" element exists
                         document.getElementById("dancingtaco").remove(); // Remove the "myGui" element from the document

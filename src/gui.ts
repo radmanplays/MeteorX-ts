@@ -68,7 +68,7 @@ export function registergui() {
         gui.style.position = 'fixed';
         gui.style.top = '0px';
         gui.style.left = '0px';
-        gui.style.zIndex = '10';
+        gui.style.zIndex = '100';
         gui.style.color = 'white';
         gui.style.fontFamily = 'Minecraftia, sans-serif';
         gui.style.overflow = 'hidden scroll';
