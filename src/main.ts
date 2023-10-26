@@ -7,6 +7,7 @@ import { registerjetpack } from "./jetpack"
 import { registerFullbright } from "./fullbright"
 import { registercmds } from "./cmds";
 import { registernoweb } from "./noweb"
+import { registertaco, displaytaco } from "./taco";
 var jetpackguiactive = false;
 console.log("[MeteorX] Loading client...")
 registercmds()
@@ -17,4 +18,6 @@ registerSpider()
 registerStep()
 registerNofall()
 registerFullbright()
+registertaco()
+displaytaco()
 console.log("[MeteorX] Finished loading client!")
