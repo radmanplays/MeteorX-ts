@@ -32,7 +32,7 @@ export function registercmds() {
             event.preventDefault = true;
         }
         if (event.message.startsWith(".uwuify ")) {
-            var messageAfter = event.message.split('.uwuify ').pop();
+            var messageAfter = msg.split('.uwuify ').pop();
             var uwumessage = uwuify(messageAfter)
             //@ts-ignore
             PluginAPI.network.sendPacketChatMessage({messageIn: uwumessage})
