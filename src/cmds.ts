@@ -33,10 +33,17 @@ export function registercmds() {
         }
         if (event.message.startsWith(".uwuify ")) {
             //@ts-ignore
-            var messageAfter = msg.split('.uwuify ').pop();
-            var uwumessage = uwuify(messageAfter)
-            //@ts-ignore
-            PluginAPI.network.sendPacketChatMessage({messageIn: uwumessage})
+            var targetLength = ".uwuify".length;
+            var message = event.message.toString().trim();
+            if ( //If
+                message.length > targetLength && //The length of the message is longer than the target length
+                message.substring(0, targetLength).trim().toLowerCase() === ".uwuify" //And, the content from character 0 (first) to that of the length, trimmed and put to lowercase is ".makescroll"
+              ) {
+                var actualchatmessage = message.substring(targetLength+1);
+                var uwumessage = uwuify(actualchatmessage)
+                //@ts-ignore
+                PluginAPI.network.sendPacketChatMessage({messageIn: uwumessage})
+            }
 
         }
         if (event.message === ".taco") {
