@@ -2,7 +2,7 @@ export function registerwarning() {
     //@ts-ignore
     PluginAPI.require("network");
     // these server are from https://radmanplays.github.io/serverlist/
-    const servers = "wss://mc.arch.lol" || "wss://mc.asspixel.net/" || "wss://web.asspixel.net/CAP/" || "wss://sus.shhnowisnottheti.me" || "wss://mc.theludos.com" || "wss://zentic.cc" || "wss://venstone.ddns.net:8082" || "wss://aeon-network.net/1.8" || "wss://ggsmp.net/" || "wss://play.cerealnet.work" || "wss://flamemc.repl.co" || "wss://eagler.lbgaming.co" || "wss://legxndsmp.minecraft.pe" || "wss://asianf4rmer.minecraft.pe" || "wss://mc.amythest.lol" || "wss://endoria.play" || "wss://play.hybridmc.repl.co/" || "wss://mercurymc.net"
+    const servers = "wss://mc.arch.lol" || "wss://mc.asspixel.net/" || "wss://web.asspixel.net/CAP/" || "wss://sus.shhnowisnottheti.me" || "wss://mc.theludos.com" || "wss://zentic.cc" || "wss://venstone.ddns.net:8082" || "wss://aeon-network.net/1.8" || "wss://ggsmp.net/" || "wss://play.cerealnet.work" || "wss://flamemc.repl.co" || "wss://eagler.lbgaming.co" || "wss://legxndsmp.minecraft.pe" || "wss://asianf4rmer.minecraft.pe" || "wss://mc.amythest.lol" || "wss://endoria.play" || "wss://play.hybridmc.repl.co/" || "wss://mercurymc.net" || "wss://cerealnet.minecraft.pe"
     //@ts-ignore
     PluginAPI.addEventListener("packetjoingame", (ev) => {
         var serverip = ev.ip;
