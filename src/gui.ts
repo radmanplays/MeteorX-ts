@@ -58,7 +58,7 @@ export function registergui() {
             <td style="background-color: gray; text-align: center;" id="noweb">Activate</td> 
             </tr> 
         </tbody></table>
-        <a style="background: transparent; text-align: center; color: yellow; cursor: pointer; font-family: Minecraftia, sans-serif; text-decoration: underline; border: 0px; margin-right: 1rem; font-size: 1rem;" href="https://github.com/radmanplays/MeteorX/issues/new" target="_blank">suggest a new feature/hack</a>
+        <a style="background: transparent; text-align: center; color: yellow; cursor: pointer; font-family: Minecraftia, sans-serif; text-decoration: underline; border: 0px; margin-right: 1rem; font-size: 1rem;" href="https://github.com/radmanplays/MeteorX-ts/issues/new" target="_blank">suggest a new feature/hack</a>
         <a style="background: transparent;text-align: center;color: orange;cursor: pointer;font-family: Minecraftia, sans-serif;text-decoration: underline;border: 0px;font-size: 1rem;" href="https://github.com/orgs/EaglerReborn/discussions/9" target="_blank">version Roadmap</a>
         
           </gui>
