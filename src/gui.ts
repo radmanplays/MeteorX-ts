@@ -23,6 +23,7 @@ export function registergui() {
       
       if (document.pointerLockElement != null) {
         document.exitPointerLock()
+      }
         gui.innerHTML =`
         <gui id="myGui" style="width: 100%;height: 100%;position: fixed;top: 0px;left: 0px;z-index: 10;color: white;font-family: Minecraftia, sans-serif;overflow: hidden scroll;background-color: rgba(80, 80, 80, 0.42);background-blend-mode: multiply;background-size: 64px;">
         <h1 style="text-shadow: 0px 0px 4px;">MeteorX GUI</h1>
@@ -218,7 +219,7 @@ export function registergui() {
             setnowebToggle(false);
         } 
         });
-      }
+      
     }
     
 
