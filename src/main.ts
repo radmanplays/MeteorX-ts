@@ -8,6 +8,7 @@ import { registerFullbright } from "./fullbright"
 import { registercmds } from "./cmds";
 import { registernoweb } from "./noweb"
 import { registertaco, displaytaco } from "./taco";
+import { getplayerpos, updatePlayerPosition } from './playerutils';
 var jetpackguiactive = false;
 console.log("[MeteorX] Loading client...")
 registercmds()

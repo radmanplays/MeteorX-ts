@@ -1,6 +1,7 @@
-import { uwuify } from "./uwuapi";
+const owoify = require('owoify-js').default
 import { MeteorXlog } from "./chatutils";
 import { settacoToggle, returntacoToggle } from "./taco";
+import { getplayerpos, updatePlayerPosition } from "./playerutils";
 
 var version = "v1.0";
 var cmds = ".version , .help , .ip , .uwuify , .taco"
@@ -40,7 +41,7 @@ export function registercmds() {
                 message.substring(0, targetLength).trim().toLowerCase() === ".uwuify" //And, the content from character 0 (first) to that of the length, trimmed and put to lowercase is ".makescroll"
               ) {
                 var actualchatmessage = message.substring(targetLength+1);
-                var uwumessage = uwuify(actualchatmessage)
+                var uwumessage = owoify(actualchatmessage)
                 //@ts-ignore
                 PluginAPI.network.sendPacketChatMessage({messageIn: uwumessage})
             }
@@ -63,6 +64,14 @@ export function registercmds() {
                 MeteorXlog("no taco :(");
                 settacoToggle(false);
               }
+            event.preventDefault = true;
+        }
+        if (event.message === ".mypos") {
+            //@ts-ignore
+            PluginAPI.addEventListener("update", () => {
+                updatePlayerPosition()
+            });
+            MeteorXlog("your last reported cords(IRL(jk)): " + " x= " + getplayerpos.x + " y= " + getplayerpos.y + " z= " + getplayerpos.z);
             event.preventDefault = true;
         }
     });
