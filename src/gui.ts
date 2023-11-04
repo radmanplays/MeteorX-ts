@@ -5,6 +5,7 @@ import { setNofallToggle, returnNofallToggle } from "./nofall";
 import { setFullbrightToggle, returnFullbrightToggle } from "./fullbright";
 import { setjetpacktoggle, returnjetpacktoggle } from "./jetpack";
 import { setnowebToggle, returnnowebToggle } from "./noweb";
+import { setautoclickertoggle, returnautoclickertoggle, setautoclickermode, returnautoclickermode, setleftclickdelay, returnleftclickdelay, setrightclickdelay, returnrightclickdelay } from './autoclicker';
 export function registergui() {
   var guiVisible = false; // Variable to keep track of the visibility of the GUI
 
@@ -31,32 +32,37 @@ export function registergui() {
         <table style="table-layout: fixed; width: 100%;">
             <tbody><tr style="background: rgb(80, 80, 80);">
                 <th style="text-align: center;">Hacks</th>
-                <th style="text-align: center; width: 15%;">Activate/Deactivate</th>
-            </tr>
+                
+            <th style="text-align: center; width: 15%;">Settings</th><th style="text-align: center; width: 15%;">Activate/Deactivate</th></tr>
             <tr style="box-shadow: grey 0px 2px 0px;">
                 <td style="user-select: text;background-color: #9d00ff30;">Jetpack (hold space to fly) 🎒💨</td>
-                <td style="background-color: gray; text-align: center;" id="jetpack">Activate</td>
-            </tr>
+                                
+
+            <td style="background-color: #9d00ff30;text-align: center;"></td><td style="background-color: gray;text-align: center;" id="jetpack">Activate</td></tr>
             <tr style="box-shadow: grey 0px 2px 0px;">
                 <td style="user-select: text;background-color: #9d00ff30;">Step</td>
-                <td style="background-color: gray; text-align: center;" id="step">Activate</td>
+                <td style="background-color: #9d00ff30;text-align: center;"></td><td style="background-color: gray; text-align: center;" id="step">Activate</td>
             </tr>
             <tr style="box-shadow: grey 0px 2px 0px;">
                 <td style="user-select: text;background-color: #9d00ff30;">Spider</td>
-                <td style="background-color: gray; text-align: center;" id="spider">Activate</td>
+                <td style="background-color: #9d00ff30;text-align: center;"></td><td style="background-color: gray; text-align: center;" id="spider">Activate</td>
             </tr>
             <tr style="box-shadow: grey 0px 2px 0px;">
                 <td style="user-select: text;background-color: #9d00ff30;">Nofall</td>
-                <td style="background-color: gray; text-align: center;" id="nofall">Activate</td>
+                <td style="background-color: #9d00ff30;text-align: center;"></td><td style="background-color: gray; text-align: center;" id="nofall">Activate</td>
             </tr>
             <tr style="box-shadow: grey 0px 2px 0px;">
                 <td style="user-select: text;background-color: #9d00ff30;">Fullbright</td>
-                <td style="background-color: gray; text-align: center;" id="fullbright">Activate</td>
+                <td style="background-color: #9d00ff30;text-align: center;"></td><td style="background-color: gray; text-align: center;" id="fullbright">Activate</td>
             </tr>
             <tr style="box-shadow: grey 0px 2px 0px;"> 
             <td style="user-select: text;background-color: #9d00ff30;">NoWeb</td> 
-            <td style="background-color: gray; text-align: center;" id="noweb">Activate</td> 
+            <td style="background-color: #9d00ff30;text-align: center;"></td><td style="background-color: gray;text-align: center;" id="noweb">Activate</td> 
             </tr> 
+            <tr style="box-shadow: grey 0px 2px 0px;"> 
+            <td style="user-select: text;background-color: #9d00ff30;">Autoclicker</td> 
+             
+            <td style="background-color: #e59400;text-align: center;" id="autoclickersettings">Settings</td><td style="background-color: gray;text-align: center;" id="autoclicker">Activate</td></tr> 
         </tbody></table>
         <a style="background: transparent; text-align: center; color: yellow; cursor: pointer; font-family: Minecraftia, sans-serif; text-decoration: underline; border: 0px; margin-right: 1rem; font-size: 1rem;" href="https://github.com/radmanplays/MeteorX-ts/issues/new" target="_blank">suggest a new feature/hack</a>
         <a style="background: transparent;text-align: center;color: orange;cursor: pointer;font-family: Minecraftia, sans-serif;text-decoration: underline;border: 0px;font-size: 1rem;" href="https://github.com/orgs/EaglerReborn/discussions/9" target="_blank">version Roadmap</a>
@@ -84,6 +90,8 @@ export function registergui() {
         var nofallElement = document.getElementById("nofall");
         var fullbrightElement = document.getElementById("fullbright");
         var nowebElement = document.getElementById("noweb");
+        var autoclickersettings = document.getElementById("autoclickersettings"); 
+        var autoclickerElement = document.getElementById("autoclicker"); 
         jetpackElement.addEventListener("mouseover", function() {
           jetpackElement.style.cursor = "pointer";
         });
@@ -101,6 +109,9 @@ export function registergui() {
         })
         nowebElement.addEventListener("mouseover", function() {
           nowebElement.style.cursor = "pointer";
+        });
+        autoclickerElement.addEventListener("mouseover", function() {
+          autoclickerElement.style.cursor = "pointer";
         });
         if (returnjetpacktoggle() === false) {
           jetpackElement.innerText = "Activate";
@@ -126,6 +137,10 @@ export function registergui() {
           nowebElement.innerText = "Activate";
           nowebElement.style.backgroundColor = "green";
         }
+        if (returnautoclickertoggle() === false) {
+          autoclickerElement.innerText = "Activate";
+          autoclickerElement.style.backgroundColor = "green";
+        }
         if (returnjetpacktoggle() === true) {
           jetpackElement.innerText = "Deactivate";
           jetpackElement.style.backgroundColor = "red";
@@ -149,6 +164,10 @@ export function registergui() {
         if (returnnowebToggle() === true) {
           nowebElement.innerText = "Deactivate";
           nowebElement.style.backgroundColor = "red";
+        }
+        if (returnautoclickertoggle() === true) {
+          autoclickerElement.innerText = "Deactivate";
+          autoclickerElement.style.backgroundColor = "red";
         }
         stepElement.addEventListener("click", function(){
           if (returnStepToggle() !== true) {
@@ -218,6 +237,46 @@ export function registergui() {
             nowebElement.style.backgroundColor = "green";
             setnowebToggle(false);
         } 
+        });
+        autoclickerElement.addEventListener("click", function() {
+          if (returnautoclickertoggle() !== true) {
+            autoclickerElement.innerText = "Deactivate";
+            autoclickerElement.style.backgroundColor = "red";
+            setautoclickertoggle(true);
+          } else {
+            autoclickerElement.innerText = "Activate";
+            autoclickerElement.style.backgroundColor = "green";
+            setautoclickertoggle(false); 
+          }
+        });
+        autoclickersettings.addEventListener("click", function(){
+          let clickercanceled = false;
+          var clickermode = prompt("choose mode (by entering a numberin the box below): \n [1] rightclick \n [2] leftclick", "2");
+          var nummode = Number(clickermode)
+          if (clickermode == null || clickermode == "") {
+            console.log("User cancelled the prompt.\n mode set to default(leftclick)");
+            setautoclickermode("leftclick")
+            clickercanceled = true;
+          } else if (clickermode === "1"){
+              setautoclickermode("rightclick")
+          } else if (clickermode === "2"){
+            setautoclickermode("leftclick")
+          }else if (isNaN(nummode) || nummode != 1||2){
+            alert("invalid input(" + clickermode +") please press the settings button again \n and choose the clicking mode that you want")
+          }
+          if (!clickercanceled){
+            var delay = prompt ("enter delay between clicks (per tick (20 ticks = 1 second))\n (example : 10) \n (examples not to enter: 69.420) :", "20");
+            var numdelay = Number(delay)
+            if (delay == null) {
+              alert("User cancelled the delay prompt.\n delay set to default (20 ticks(1 cps))");
+            } else if (clickermode === "1"){
+              setrightclickdelay(numdelay)
+            } else if (clickermode === "2"){
+              setleftclickdelay(numdelay)
+            }  else if (isNaN(numdelay)) {
+              alert("the delay that you chose(" + delay + ") is NOT A NUMBER,\nplease press the settings button again and \n choose the delay that you want");
+          }
+          }
         });
       
     }
