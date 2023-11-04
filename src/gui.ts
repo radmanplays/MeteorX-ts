@@ -110,6 +110,9 @@ export function registergui() {
         nowebElement.addEventListener("mouseover", function() {
           nowebElement.style.cursor = "pointer";
         });
+        autoclickersettingsElement.addEventListener("mouseover", function() {
+          autoclickersettingsElement.style.cursor = "pointer";
+        });
         autoclickerElement.addEventListener("mouseover", function() {
           autoclickerElement.style.cursor = "pointer";
         });
@@ -263,6 +266,7 @@ export function registergui() {
             setautoclickermode("leftclick")
           }else if (isNaN(nummode) || nummode != 1||2){
             alert("invalid input(" + clickermode +") please press the settings button again \n and choose the clicking mode that you want")
+            clickercanceled = true;
           }
           if (!clickercanceled){
             var delay = prompt ("enter delay between clicks (per tick (20 ticks = 1 second))\n (example : 10) \n (examples not to enter: 69.420) :", "20");
