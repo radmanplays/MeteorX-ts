@@ -71,6 +71,7 @@ export function registercmds() {
             PluginAPI.addEventListener("update", () => {
                 updatePlayerPosition()
             });
+            // TODO: trim x and y to not include decimals
             MeteorXlog("your last reported cords(IRL(jk)): " + " x= " + getplayerpos.x + " y= " + getplayerpos.y + " z= " + getplayerpos.z);
             event.preventDefault = true;
         }
