@@ -110,8 +110,8 @@ export function registergui() {
         nowebElement.addEventListener("mouseover", function() {
           nowebElement.style.cursor = "pointer";
         });
-        autoclickersettingsElement.addEventListener("mouseover", function() {
-          autoclickersettingsElement.style.cursor = "pointer";
+        autoclickersettings.addEventListener("mouseover", function() {
+          autoclickersettings.style.cursor = "pointer";
         });
         autoclickerElement.addEventListener("mouseover", function() {
           autoclickerElement.style.cursor = "pointer";
