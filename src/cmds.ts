@@ -71,8 +71,11 @@ export function registercmds() {
             PluginAPI.addEventListener("update", () => {
                 updatePlayerPosition()
             });
-            // TODO: trim x and y to not include decimals
-            MeteorXlog("your last reported cords(IRL(jk)): " + " x= " + getplayerpos.x + " y= " + getplayerpos.y + " z= " + getplayerpos.z);
+            // TODO: trim x and y to not include decimals [done]
+            var playerx = Math.trunc(getplayerpos.x);
+            var playery = Math.trunc(getplayerpos.y);
+            var playerz = Math.trunc(getplayerpos.z);
+            MeteorXlog("your last reported cords(IRL(jk)): " + " x= " + playerx + " y= " + playery + " z= " + playerz);
             event.preventDefault = true;
         }
     });
