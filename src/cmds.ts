@@ -105,7 +105,9 @@ export function registercmds() {
                         PluginAPI.network.sendPacketPlayerPosition({onGround: true})  
                     }
                     // Now send the final player move packet
+                    //@ts-ignore
                     PluginAPI.network.sendPacketPlayerPosition({onGround: true, x: getplayerpos.x, y: getplayerpos.y + vclipvalue, z: getplayerpos.z})
+                    //@ts-ignore
                     PluginAPI.player.setPosition(x: getplayerpos.x, y: getplayerpos.y + vclipvalue, z: getplayerpos.z)
                     MeteorXsuccess("successfully vclipped " + vclipvalue + "blocks!")
                 }
