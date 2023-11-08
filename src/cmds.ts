@@ -84,6 +84,7 @@ export function registercmds() {
         }
         if (event.message.startsWith(".vclip ")) {
             //from https://github.com/MeteorDevelopment/meteor-client/blob/master/src/main/java/meteordevelopment/meteorclient/commands/commands/VClipCommand.java
+            // TODO : make it so the command only accepts numbers (!isNAN())
             //@ts-ignore
             var targetLength = ".vclip".length;
             var message = event.message.toString().trim();
