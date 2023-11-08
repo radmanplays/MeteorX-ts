@@ -45,7 +45,7 @@ export function registercmds() {
                 //@ts-ignore
                 PluginAPI.network.sendPacketChatMessage({messageIn: uwumessage})
             }
-
+            event.preventDefault = true;
         }
         if (event.message === ".taco") {
             if (returntacoToggle() !== true) {
