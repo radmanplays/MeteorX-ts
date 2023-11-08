@@ -1,5 +1,5 @@
 const owoify = require('owoify-js').default
-import { MeteorXlog } from "./chatutils";
+import { MeteorXlog, MeteorXerror, MeteorXfailure, MeteorXsuccess, MeteorXwarning } from "./chatutils";
 import { settacoToggle, returntacoToggle } from "./taco";
 import { getplayerpos, updatePlayerPosition } from "./playerutils";
 
@@ -100,7 +100,7 @@ export function registercmds() {
                 }
                 if (isplayerriding === false){
                     // For each 10 blocks, send a player move packet with no delta
-                    for (var packetnumber = 0; packetnumber < (packetsrequired - 1) packetnumber++) {
+                    for (var packetnumber = 0; packetnumber < (packetsrequired - 1); packetnumber++) {
                         //@ts-ignore
                         PluginAPI.network.sendPacketPlayerPosition({onGround: true})  
                     }
@@ -108,7 +108,7 @@ export function registercmds() {
                     //@ts-ignore
                     PluginAPI.network.sendPacketPlayerPosition({onGround: true, x: getplayerpos.x, y: getplayerpos.y + vclipvalue, z: getplayerpos.z})
                     //@ts-ignore
-                    PluginAPI.player.setPosition(x: getplayerpos.x, y: getplayerpos.y + vclipvalue, z: getplayerpos.z)
+                    PluginAPI.player.setPosition({x: getplayerpos.x, y: getplayerpos.y + vclipvalue, z: getplayerpos.z})
                     MeteorXsuccess("successfully vclipped " + vclipvalue + "blocks!")
                 }
                 if (isplayerriding === true){
