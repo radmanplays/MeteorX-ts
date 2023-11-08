@@ -109,7 +109,7 @@ export function registercmds() {
                     PluginAPI.network.sendPacketPlayerPosition({onGround: true, x: getplayerpos.x, y: getplayerpos.y + vclipvalue, z: getplayerpos.z})
                     //@ts-ignore
                     PluginAPI.player.setPosition({x: getplayerpos.x, y: getplayerpos.y + vclipvalue, z: getplayerpos.z})
-                    MeteorXsuccess("successfully vclipped " + vclipvalue + "blocks!")
+                    MeteorXsuccess("successfully vclipped " + vclipvalue + " blocks!")
                 }
                 if (isplayerriding === true){
                     MeteorXerror("you need to get off this mob/vehicle to use this command!")
