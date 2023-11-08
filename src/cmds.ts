@@ -3,7 +3,7 @@ import { MeteorXlog, MeteorXerror, MeteorXfailure, MeteorXsuccess, MeteorXwarnin
 import { settacoToggle, returntacoToggle } from "./taco";
 import { getplayerpos, updatePlayerPosition } from "./playerutils";
 
-var version = "v1.0";
+var version = "v1.1";
 var cmds = ".version , .help , .ip , .uwuify , .taco, .mypos, .vclip"
 var serverip = null;
 export function registercmds() {
