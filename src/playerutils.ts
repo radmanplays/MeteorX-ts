@@ -15,11 +15,11 @@ let getplayerpos: PlayerPos = {
 
 function updatePlayerPosition() {
     //@ts-ignore
-    getplayerpos.x = PluginAPI.player.lastReportedPosX;
+    getplayerpos.x = PluginAPI.player.x;
     //@ts-ignore
-    getplayerpos.y = PluginAPI.player.lastReportedPosY;
+    getplayerpos.y = PluginAPI.player.y;
     //@ts-ignore
-    getplayerpos.z = PluginAPI.player.lastReportedPosZ;
+    getplayerpos.z = PluginAPI.player.z;
     //@ts-ignore
     PluginAPI.player.reload();
 }

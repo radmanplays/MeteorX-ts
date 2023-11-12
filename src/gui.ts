@@ -3,9 +3,10 @@ import { setStepToggle, returnStepToggle } from "./step";
 import { setSpiderToggle, returnSpiderToggle } from "./spider";
 import { setNofallToggle, returnNofallToggle } from "./nofall";
 import { setFullbrightToggle, returnFullbrightToggle } from "./fullbright";
-import { setjetpacktoggle, returnjetpacktoggle } from "./jetpack";
+import { setjetpacktoggle, returnjetpacktoggle, setjetpackforce, returnjetpackforce } from './jetpack';
 import { setnowebToggle, returnnowebToggle } from "./noweb";
 import { setautoclickertoggle, returnautoclickertoggle, setautoclickermode, returnautoclickermode, setleftclickdelay, returnleftclickdelay, setrightclickdelay, returnrightclickdelay } from './autoclicker';
+import { setslipperyToggle, returnslipperytoggle } from "./slippery";
 export function registergui() {
   var guiVisible = false; // Variable to keep track of the visibility of the GUI
 
@@ -38,7 +39,7 @@ export function registergui() {
                 <td style="user-select: text;background-color: #9d00ff30;">Jetpack (hold space to fly) 🎒💨</td>
                                 
 
-            <td style="background-color: #9d00ff30;text-align: center;"></td><td style="background-color: gray;text-align: center;" id="jetpack">Activate</td></tr>
+            <td style="background-color: #e59400;text-align: center;" id="jetpacksettings">Settings</td><td style="background-color: gray;text-align: center;" id="jetpack">Activate</td></tr>
             <tr style="box-shadow: grey 0px 2px 0px;">
                 <td style="user-select: text;background-color: #9d00ff30;">Step</td>
                 <td style="background-color: #9d00ff30;text-align: center;"></td><td style="background-color: gray; text-align: center;" id="step">Activate</td>
@@ -62,7 +63,13 @@ export function registergui() {
             <tr style="box-shadow: grey 0px 2px 0px;"> 
             <td style="user-select: text;background-color: #9d00ff30;">Autoclicker</td> 
              
-            <td style="background-color: #e59400;text-align: center;" id="autoclickersettings">Settings</td><td style="background-color: gray;text-align: center;" id="autoclicker">Activate</td></tr> 
+            <td style="background-color: #e59400;text-align: center;" id="autoclickersettings">Settings</td><td style="background-color: gray;text-align: center;" id="autoclicker">Activate</td>
+
+            </tr> 
+            <tr style="box-shadow: grey 0px 2px 0px;"> 
+            <td style="user-select: text;background-color: #9d00ff30;">slipperymod</td> 
+            <td style="background-color: #9d00ff30;text-align: center;"></td><td style="background-color: gray;text-align: center;" id="slippery">Activate</td> 
+            </tr> 
         </tbody></table>
         <a style="background: transparent; text-align: center; color: yellow; cursor: pointer; font-family: Minecraftia, sans-serif; text-decoration: underline; border: 0px; margin-right: 1rem; font-size: 1rem;" href="https://github.com/radmanplays/MeteorX-ts/issues/new" target="_blank">suggest a new feature/hack</a>
         <a style="background: transparent;text-align: center;color: orange;cursor: pointer;font-family: Minecraftia, sans-serif;text-decoration: underline;border: 0px;font-size: 1rem;" href="https://github.com/orgs/EaglerReborn/discussions/9" target="_blank">version Roadmap</a>
@@ -85,6 +92,7 @@ export function registergui() {
         document.body.appendChild(gui); // Append the "gui" element to the body of the document
         guiVisible = true; // Set the GUI visibility to true
         var jetpackElement = document.getElementById("jetpack");
+        var jetpacksettings = document.getElementById("jetpacksettings"); 
         var stepElement = document.getElementById("step");
         var spiderElement = document.getElementById("spider");
         var nofallElement = document.getElementById("nofall");
@@ -92,8 +100,12 @@ export function registergui() {
         var nowebElement = document.getElementById("noweb");
         var autoclickersettings = document.getElementById("autoclickersettings"); 
         var autoclickerElement = document.getElementById("autoclicker"); 
+        var slipperyElement = document.getElementById("slippery"); 
         jetpackElement.addEventListener("mouseover", function() {
           jetpackElement.style.cursor = "pointer";
+        });
+        jetpacksettings.addEventListener("mouseover", function() {
+          autoclickersettings.style.cursor = "pointer";
         });
         stepElement.addEventListener("mouseover", function() {
           stepElement.style.cursor = "pointer";
@@ -115,6 +127,9 @@ export function registergui() {
         });
         autoclickerElement.addEventListener("mouseover", function() {
           autoclickerElement.style.cursor = "pointer";
+        });
+        slipperyElement.addEventListener("mouseover", function() {
+          slipperyElement.style.cursor = "pointer";
         });
         if (returnjetpacktoggle() === false) {
           jetpackElement.innerText = "Activate";
@@ -144,6 +159,10 @@ export function registergui() {
           autoclickerElement.innerText = "Activate";
           autoclickerElement.style.backgroundColor = "green";
         }
+        if (returnslipperytoggle() === false) {
+          slipperyElement.innerText = "Activate";
+          slipperyElement.style.backgroundColor = "green";
+        }
         if (returnjetpacktoggle() === true) {
           jetpackElement.innerText = "Deactivate";
           jetpackElement.style.backgroundColor = "red";
@@ -171,6 +190,10 @@ export function registergui() {
         if (returnautoclickertoggle() === true) {
           autoclickerElement.innerText = "Deactivate";
           autoclickerElement.style.backgroundColor = "red";
+        }
+        if (returnslipperytoggle() === true) {
+          slipperyElement.innerText = "Deactivate";
+          slipperyElement.style.backgroundColor = "red";
         }
         stepElement.addEventListener("click", function(){
           if (returnStepToggle() !== true) {
@@ -225,6 +248,21 @@ export function registergui() {
             jetpackElement.innerText = "Activate";
             jetpackElement.style.backgroundColor = "green";
             setjetpacktoggle(false);
+          }
+        });
+        jetpacksettings.addEventListener("click", function() {
+          var jetpackforce = prompt("choose the force for jetpack.(more than 0.2 might trigger anticheats)\ndefault : 0.2 \ncurrent : " + returnjetpackforce())
+          var numjetpackforce = Number(jetpackforce);
+          if (isNaN(numjetpackforce)){
+            alert("jetpackforce is NAN (not a number) setting jetpackforce to default")
+            setjetpackforce(0.2)
+          }
+          if (jetpackforce == null || jetpackforce == "") {
+            alert ("User cancelled the prompt.\n setting jetpackforce to default (0.2)")
+            setjetpackforce(0.2)
+          } else {
+            alert ("jetpackforce set to " + jetpackforce)
+            setjetpackforce(numjetpackforce)
           }
         });
         nowebElement.addEventListener("click", function() {
@@ -282,7 +320,17 @@ export function registergui() {
           }
           }
         });
-      
+        slipperyElement.addEventListener("click", function() {
+          if (returnslipperytoggle() !== true) {
+            slipperyElement.innerText = "Deactivate";
+            slipperyElement.style.backgroundColor = "red";
+            setslipperyToggle(true);
+          } else {
+            slipperyElement.innerText = "Activate";
+            slipperyElement.style.backgroundColor = "green";
+            setslipperyToggle(false); 
+          }
+        });
     }
     
 

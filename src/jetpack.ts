@@ -1,4 +1,5 @@
 let jetpackguiactive: boolean = false;
+let jetpackforce: Number = 0.2;
 import { displayToChat } from "./chat"
 export function registerjetpack() {
     //@ts-ignore
@@ -24,7 +25,7 @@ export function registerjetpack() {
                     return;
                 }
                     //@ts-ignore
-                    PluginAPI.player.motionY += 0.2;
+                    PluginAPI.player.motionY += jetpackforce;
                     //@ts-ignore
                     PluginAPI.player.reload()
                 }
@@ -36,4 +37,10 @@ export function setjetpacktoggle(theBoolean: boolean) {
 }
 export function returnjetpacktoggle(): boolean {
     return jetpackguiactive;
+}
+export function setjetpackforce(theNumber: Number) {
+    jetpackforce = theNumber;
+}
+export function returnjetpackforce(): Number {
+    return jetpackforce;
 }
