@@ -105,11 +105,11 @@ export function registercmds() {
                     // For each 10 blocks, send a player move packet with no delta
                     for (var packetnumber = 0; packetnumber < (packetsrequired - 1); packetnumber++) {
                         //@ts-ignore
-                        PluginAPI.network.sendPacketPlayerPosition({onGround: true})  
+                        PluginAPI.network.sendPacketPlayer({onGround: true})  
                     }
                     // Now send the final player move packet
                     //@ts-ignore
-                    PluginAPI.network.sendPacketPlayerPosition({onGround: true, x: getplayerpos.x, y: getplayerpos.y + vclipvalue, z: getplayerpos.z})
+                    PluginAPI.network.sendPacketPlayer({onGround: true, x: getplayerpos.x, y: getplayerpos.y + vclipvalue, z: getplayerpos.z})
                     //@ts-ignore
                     PluginAPI.player.setPosition({x: getplayerpos.x, y: getplayerpos.y + vclipvalue, z: getplayerpos.z})
                     MeteorXsuccess("successfully vclipped " + vclipvalue + " blocks!")
