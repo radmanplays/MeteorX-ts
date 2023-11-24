@@ -1,3 +1,4 @@
+// import modules and commands...
 import { displayToChat } from "../utils/chat";
 import { setStepToggle, returnStepToggle } from "../modules/step";
 import { setSpiderToggle, returnSpiderToggle } from "../modules/spider";
@@ -23,9 +24,10 @@ export function registergui() {
       
       var gui = document.createElement("gui"); // Create a new "gui" element
       
-      if (document.pointerLockElement != null) {
-        document.exitPointerLock()
+      if (document.pointerLockElement != null) {// if pointerlock is enabled
+        document.exitPointerLock()// exits pointerlock
       }
+        // gui's html code
         gui.innerHTML =`
         <gui id="myGui" style="width: 100%;height: 100%;position: fixed;top: 0px;left: 0px;z-index: 10;color: white;font-family: Minecraftia, sans-serif;overflow: hidden scroll;background-color: rgba(80, 80, 80, 0.42);background-blend-mode: multiply;background-size: 64px;">
         <h1 style="text-shadow: 0px 0px 4px;">MeteorX GUI</h1>
@@ -77,6 +79,7 @@ export function registergui() {
           </gui>
         `; // Set the HTML content of the "gui" element
         gui.id = "myGui"; // Set the ID of the "gui" element to "myGui"
+        // css styles of the gui
         gui.style.width = '100%';
         gui.style.height = '100%';
         gui.style.position = 'fixed';
@@ -91,6 +94,7 @@ export function registergui() {
         gui.style.backgroundSize = '64px';
         document.body.appendChild(gui); // Append the "gui" element to the body of the document
         guiVisible = true; // Set the GUI visibility to true
+        // assign the activate/deactivate buttons to variables
         var jetpackElement = document.getElementById("jetpack");
         var jetpacksettings = document.getElementById("jetpacksettings"); 
         var stepElement = document.getElementById("step");
@@ -101,6 +105,7 @@ export function registergui() {
         var autoclickersettings = document.getElementById("autoclickersettings"); 
         var autoclickerElement = document.getElementById("autoclicker"); 
         var slipperyElement = document.getElementById("slippery"); 
+        // if mouse cursor is hovering over the buttons set the cursor to pointer
         jetpackElement.addEventListener("mouseover", function() {
           jetpackElement.style.cursor = "pointer";
         });
@@ -131,6 +136,7 @@ export function registergui() {
         slipperyElement.addEventListener("mouseover", function() {
           slipperyElement.style.cursor = "pointer";
         });
+        // if the gui opens and the variable for modules are false make the buttons say: "Activate"
         if (returnjetpacktoggle() === false) {
           jetpackElement.innerText = "Activate";
           jetpackElement.style.backgroundColor = "green";
@@ -163,6 +169,7 @@ export function registergui() {
           slipperyElement.innerText = "Activate";
           slipperyElement.style.backgroundColor = "green";
         }
+        // if the gui opens and the variable for modules are true make the buttons say: "Deactivate"
         if (returnjetpacktoggle() === true) {
           jetpackElement.innerText = "Deactivate";
           jetpackElement.style.backgroundColor = "red";
@@ -195,6 +202,7 @@ export function registergui() {
           slipperyElement.innerText = "Deactivate";
           slipperyElement.style.backgroundColor = "red";
         }
+        // if the user clicks on the buttons and the variable for modules are false make the buttons say "Deactivate" and if its true make the buttons say "activate" whenever the user clicks on the button 
         stepElement.addEventListener("click", function(){
           if (returnStepToggle() !== true) {
             stepElement.innerText = "Deactivate";
@@ -250,17 +258,21 @@ export function registergui() {
             setjetpacktoggle(false);
           }
         });
-        jetpacksettings.addEventListener("click", function() {
+        jetpacksettings.addEventListener("click", function() {// if the user clicks on the settings button for the jetpack module
+          //prompt user with a box to enter jetpack force 
           var jetpackforce = prompt("choose the force for jetpack.(more than 0.2 might trigger anticheats)\ndefault : 0.2 \ncurrent : " + returnjetpackforce())
+          //turns the prompt answer into a number
           var numjetpackforce = Number(jetpackforce);
+          // if it wasnt a number tell the user to enter the jetpack force again
           if (isNaN(numjetpackforce)){
             alert("jetpackforce is NAN (not a number) setting jetpackforce to default")
             setjetpackforce(0.2)
           }
+          // if the user canceled the prompt make the user PAY FOR THEIR ACTIONS(i mean set the jetpack force to default :> )
           if (jetpackforce == null || jetpackforce == "") {
             alert ("User cancelled the prompt.\n setting jetpackforce to default (0.2)")
             setjetpackforce(0.2)
-          } else {
+          } else {// if the user didnt cancel the prompt like a good boy tell them that the jetpack force has been set to what they chose
             alert ("jetpackforce set to " + jetpackforce)
             setjetpackforce(numjetpackforce)
           }

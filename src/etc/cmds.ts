@@ -1,7 +1,7 @@
 const owoify = require('owoify-js').default
 import { MeteorXlog, MeteorXerror, MeteorXfailure, MeteorXsuccess, MeteorXwarning } from "../utils/chatutils";
 import { settacoToggle, returntacoToggle } from "./taco";
-import { getplayerpos, updatePlayerPosition } from "../utils/playerutils";
+import { getplayerpos, updatePlayerPosition, addtoplayerxpos, addtoplayerypos, addtoplayerzpos } from "../utils/playerutils";
 import { gettps } from "../utils/tps";
 
 var version = "v1.1";
@@ -109,9 +109,9 @@ export function registercmds() {
                     }
                     // Now send the final player move packet
                     //@ts-ignore
-                    PluginAPI.network.sendPacketPlayer({onGround: true, x: getplayerpos.x, y: getplayerpos.y + vclipvalue, z: getplayerpos.z})
+                    PluginAPI.network.sendPacketPlayer({onGround: true, x: getplayerpos.x, y: addtoplayerypos(vclipvalue), z: getplayerpos.z})
                     //@ts-ignore
-                    PluginAPI.player.setPosition({x: getplayerpos.x, y: getplayerpos.y + vclipvalue, z: getplayerpos.z})
+                    PluginAPI.player.setPosition({x: getplayerpos.x, y: addtoplayerypos(vclipvalue), z: getplayerpos.z})
                     MeteorXsuccess("successfully vclipped " + vclipvalue + " blocks!")
                 }
                 if (isplayerriding === true){

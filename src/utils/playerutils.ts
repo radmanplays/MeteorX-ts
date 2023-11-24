@@ -23,5 +23,16 @@ function updatePlayerPosition() {
     //@ts-ignore
     PluginAPI.player.reload();
 }
-
+export function addtoplayerxpos(x:Number){
+    //@ts-ignore
+    PluginAPI.player.x += x
+}
+export function addtoplayerypos(y:Number){
+    //@ts-ignore
+    PluginAPI.player.y += y
+}
+export function addtoplayerzpos(z:Number){
+    //@ts-ignore
+    PluginAPI.player.z += z
+}
 export { getplayerpos, updatePlayerPosition };
