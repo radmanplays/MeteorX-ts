@@ -1,8 +1,8 @@
 const owoify = require('owoify-js').default
-import { MeteorXlog, MeteorXerror, MeteorXfailure, MeteorXsuccess, MeteorXwarning } from "./chatutils";
+import { MeteorXlog, MeteorXerror, MeteorXfailure, MeteorXsuccess, MeteorXwarning } from "../utils/chatutils";
 import { settacoToggle, returntacoToggle } from "./taco";
-import { getplayerpos, updatePlayerPosition } from "./playerutils";
-import { gettps } from "./tps";
+import { getplayerpos, updatePlayerPosition } from "../utils/playerutils";
+import { gettps } from "../utils/tps";
 
 var version = "v1.1";
 var cmds = ".version , .help , .ip , .uwuify , .taco, .mypos, .vclip, .tps"

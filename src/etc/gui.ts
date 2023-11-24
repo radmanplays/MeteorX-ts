@@ -1,12 +1,12 @@
-import { displayToChat } from "./chat";
-import { setStepToggle, returnStepToggle } from "./step";
-import { setSpiderToggle, returnSpiderToggle } from "./spider";
-import { setNofallToggle, returnNofallToggle } from "./nofall";
-import { setFullbrightToggle, returnFullbrightToggle } from "./fullbright";
-import { setjetpacktoggle, returnjetpacktoggle, setjetpackforce, returnjetpackforce } from './jetpack';
-import { setnowebToggle, returnnowebToggle } from "./noweb";
-import { setautoclickertoggle, returnautoclickertoggle, setautoclickermode, returnautoclickermode, setleftclickdelay, returnleftclickdelay, setrightclickdelay, returnrightclickdelay } from './autoclicker';
-import { setslipperyToggle, returnslipperytoggle } from "./slippery";
+import { displayToChat } from "../utils/chat";
+import { setStepToggle, returnStepToggle } from "../modules/step";
+import { setSpiderToggle, returnSpiderToggle } from "../modules/spider";
+import { setNofallToggle, returnNofallToggle } from "../modules/nofall";
+import { setFullbrightToggle, returnFullbrightToggle } from "../modules/fullbright";
+import { setjetpacktoggle, returnjetpacktoggle, setjetpackforce, returnjetpackforce } from '../modules/jetpack';
+import { setnowebToggle, returnnowebToggle } from "../modules/noweb";
+import { setautoclickertoggle, returnautoclickertoggle, setautoclickermode, returnautoclickermode, setleftclickdelay, returnleftclickdelay, setrightclickdelay, returnrightclickdelay } from '../modules/autoclicker';
+import { setslipperyToggle, returnslipperytoggle } from "../modules/slippery";
 export function registergui() {
   var guiVisible = false; // Variable to keep track of the visibility of the GUI
 
