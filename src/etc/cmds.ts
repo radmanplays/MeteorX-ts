@@ -1,13 +1,17 @@
 const owoify = require('owoify-js').default
-import { MeteorXlog, MeteorXerror, MeteorXfailure, MeteorXsuccess, MeteorXwarning } from "../utils/chatutils";
+import { MeteorXlog, MeteorXerror, MeteorXfailure, MeteorXsuccess, MeteorXwarning } from '../utils/chatutils';
 import { settacoToggle, returntacoToggle } from "./taco";
 import { getplayerpos, updatePlayerPosition, addtoplayerxpos, addtoplayerypos, addtoplayerzpos } from "../utils/playerutils";
 import { gettps } from "../utils/tps";
+import { copy } from "../utils/clipboardutils";
 
 var version = "v1.1";
-var cmds = ".version , .help , .ip , .uwuify , .taco, .mypos, .vclip, .tps"
+var cmds = ".version , .help , .ip , .uwuify , .mypos, .vclip, .tps, .copycords"
 var serverip = null;
-var tps:Number = gettps()
+//@ts-ignore
+PluginAPI.addEventListener("update", ()=>{
+    var tps:Number = gettps()
+});
 export function registercmds() {
     //@ts-ignore
     PluginAPI.addEventListener("packetjoingame", (ev) => {
@@ -49,6 +53,7 @@ export function registercmds() {
             }
             event.preventDefault = true;
         }
+        /*
         if (event.message === ".taco") {
             if (returntacoToggle() !== true) {
                 var random = Math.floor(Math.random() * 3);
@@ -67,7 +72,7 @@ export function registercmds() {
                 settacoToggle(false);
               }
             event.preventDefault = true;
-        }
+        }*/
         if (event.message === ".mypos") {
             //@ts-ignore
             PluginAPI.addEventListener("update", () => {
@@ -97,9 +102,13 @@ export function registercmds() {
                 //@ts-ignore
                 var isplayerriding = PluginAPI.player.isRiding()
                 if (isplayerriding === false){
+                    //@ts-ignore
                     PluginAPI.player.setPosition({
+                        //@ts-ignore
                         x: PluginAPI.player.x,
+                        //@ts-ignore
                         y: PluginAPI.player.y + vclipvalue,
+                        //@ts-ignore
                         z: PluginAPI.player.z
                     });
                     MeteorXsuccess("successfully vclipped " + vclipvalue + " blocks!")
@@ -117,6 +126,18 @@ export function registercmds() {
             event.preventDefault = true; //Prevent sending the chat message.
             //@ts-ignore
             MeteorXlog("§9 Current server tps is §5~" + tps.toFixed(1)); //Print the TPS to chat.
+        }
+        if (event.message === ".copycords") {
+            //@ts-ignore
+            PluginAPI.addEventListener("update", () => {
+                updatePlayerPosition()
+            });
+            var playerx = Math.trunc(getplayerpos.x);
+            var playery = Math.trunc(getplayerpos.y);
+            var playerz = Math.trunc(getplayerpos.z);
+            copy(" x= " + playerx + " y= " + playery + " z= " + playerz)
+            MeteorXsuccess("current cords copied to clipboard!");
+            event.preventDefault = true;
         }
     });
 }
