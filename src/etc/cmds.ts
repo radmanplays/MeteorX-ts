@@ -85,7 +85,6 @@ export function registercmds() {
             event.preventDefault = true;
         }
         if (event.message.startsWith(".vclip ")) {
-            //from https://github.com/MeteorDevelopment/meteor-client/blob/master/src/main/java/meteordevelopment/meteorclient/commands/commands/VClipCommand.java
             // TODO : make it so the command only accepts numbers (!isNAN()) [done]
             //@ts-ignore
             var targetLength = ".vclip".length;
@@ -97,21 +96,12 @@ export function registercmds() {
                 var vclipvalue = message.substring(targetLength+1);
                 //@ts-ignore
                 var isplayerriding = PluginAPI.player.isRiding()
-                var packetsrequired = Math.ceil(Math.abs(vclipvalue / 10));
-                if (packetsrequired > 20) {
-                    packetsrequired = 1;
-                }
                 if (isplayerriding === false){
-                    // For each 10 blocks, send a player move packet with no delta
-                    for (var packetnumber = 0; packetnumber < (packetsrequired - 1); packetnumber++) {
-                        //@ts-ignore
-                        PluginAPI.network.sendPacketPlayer({onGround: true})  
-                    }
-                    // Now send the final player move packet
-                    //@ts-ignore
-                    PluginAPI.network.sendPacketPlayer({onGround: true, x: getplayerpos.x, y: addtoplayerypos(vclipvalue), z: getplayerpos.z})
-                    //@ts-ignore
-                    PluginAPI.player.setPosition({x: getplayerpos.x, y: addtoplayerypos(vclipvalue), z: getplayerpos.z})
+                    PluginAPI.player.setPosition({
+                        x: PluginAPI.player.x,
+                        y: PluginAPI.player.y + vclipvalue,
+                        z: PluginAPI.player.z
+                    });
                     MeteorXsuccess("successfully vclipped " + vclipvalue + " blocks!")
                 }
                 if (isplayerriding === true){
