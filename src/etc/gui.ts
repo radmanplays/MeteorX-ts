@@ -8,6 +8,7 @@ import { setjetpacktoggle, returnjetpacktoggle, setjetpackforce, returnjetpackfo
 import { setnowebToggle, returnnowebToggle } from "../modules/noweb";
 import { setautoclickertoggle, returnautoclickertoggle, setautoclickermode, returnautoclickermode, setleftclickdelay, returnleftclickdelay, setrightclickdelay, returnrightclickdelay } from '../modules/autoclicker';
 import { setslipperyToggle, returnslipperytoggle } from "../modules/slippery";
+import { setautosprinttoggle, returnautosprinttoggle } from "../modules/autosprint";
 export function registergui() {
   var guiVisible = false; // Variable to keep track of the visibility of the GUI
 
@@ -72,6 +73,10 @@ export function registergui() {
             <td style="user-select: text;background-color: #9d00ff30;">slipperymod</td> 
             <td style="background-color: #9d00ff30;text-align: center;"></td><td style="background-color: gray;text-align: center;" id="slippery">Activate</td> 
             </tr> 
+            <tr style="box-shadow: grey 0px 2px 0px;"> 
+            <td style="user-select: text;background-color: #9d00ff30;">autosprint</td> 
+            <td style="background-color: #9d00ff30;text-align: center;"></td><td style="background-color: gray;text-align: center;" id="autosprint">Activate</td> 
+            </tr> 
         </tbody></table>
         <a style="background: transparent; text-align: center; color: yellow; cursor: pointer; font-family: Minecraftia, sans-serif; text-decoration: underline; border: 0px; margin-right: 1rem; font-size: 1rem;" href="https://github.com/radmanplays/MeteorX-ts/issues/new" target="_blank">suggest a new feature/hack</a>
         <a style="background: transparent;text-align: center;color: orange;cursor: pointer;font-family: Minecraftia, sans-serif;text-decoration: underline;border: 0px;font-size: 1rem;" href="https://github.com/orgs/EaglerReborn/discussions/9" target="_blank">version Roadmap</a>
@@ -104,7 +109,8 @@ export function registergui() {
         var nowebElement = document.getElementById("noweb");
         var autoclickersettings = document.getElementById("autoclickersettings"); 
         var autoclickerElement = document.getElementById("autoclicker"); 
-        var slipperyElement = document.getElementById("slippery"); 
+        var slipperyElement = document.getElementById("slippery");
+        var autosprintElement = document.getElementById("autosprint");  
         // if mouse cursor is hovering over the buttons set the cursor to pointer
         jetpackElement.addEventListener("mouseover", function() {
           jetpackElement.style.cursor = "pointer";
@@ -135,6 +141,9 @@ export function registergui() {
         });
         slipperyElement.addEventListener("mouseover", function() {
           slipperyElement.style.cursor = "pointer";
+        });
+        autosprintElement.addEventListener("mouseover", function() {
+          autosprintElement.style.cursor = "pointer";
         });
         // if the gui opens and the variable for modules are false make the buttons say: "Activate"
         if (returnjetpacktoggle() === false) {
@@ -169,6 +178,10 @@ export function registergui() {
           slipperyElement.innerText = "Activate";
           slipperyElement.style.backgroundColor = "green";
         }
+        if (returnautosprinttoggle() === false) {
+          autosprintElement.innerText = "Activate";
+          autosprintElement.style.backgroundColor = "green";
+        }
         // if the gui opens and the variable for modules are true make the buttons say: "Deactivate"
         if (returnjetpacktoggle() === true) {
           jetpackElement.innerText = "Deactivate";
@@ -201,6 +214,10 @@ export function registergui() {
         if (returnslipperytoggle() === true) {
           slipperyElement.innerText = "Deactivate";
           slipperyElement.style.backgroundColor = "red";
+        }
+        if (returnautosprinttoggle() === true) {
+          autosprintElement.innerText = "Deactivate";
+          autosprintElement.style.backgroundColor = "red";
         }
         // if the user clicks on the buttons and the variable for modules are false make the buttons say "Deactivate" and if its true make the buttons say "activate" whenever the user clicks on the button 
         stepElement.addEventListener("click", function(){
@@ -343,6 +360,17 @@ export function registergui() {
             setslipperyToggle(false); 
           }
         });
+        autosprintElement.addEventListener("click", function() {
+          if (returnautosprinttoggle() !== true) {
+            autosprintElement.innerText = "Deactivate";
+            autosprintElement.style.backgroundColor = "red";
+            setautosprinttoggle(true);
+          } else {
+            autosprintElement.innerText = "Activate";
+            autosprintElement.style.backgroundColor = "green";
+            setautosprinttoggle(false);
+          }
+        })
     }
     
 
