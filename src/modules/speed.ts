@@ -5,9 +5,9 @@ export function registerspeed(){
     //@ts-ignore
     PluginAPI.require("player")
     //@ts-ignore
-    var prex = PluginAPI.player.motionx
+    var prex = PluginAPI.player.motionX
     //@ts-ignore
-    var prez = PluginAPI.player.motionz
+    var prez = PluginAPI.player.motionZ
     //@ts-ignore
     PluginAPI.addEventListener("update", ()=>{
         //@ts-ignore
