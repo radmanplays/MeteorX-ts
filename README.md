@@ -1,5 +1,6 @@
 # MeteorX
-![Capture2](https://github.com/radmanplays/MeteorX-ts/assets/95340057/eaf32904-b340-4ccf-b846-3262da227f06)
+![image](https://github.com/radmanplays/MeteorX-ts/assets/95340057/13185552-5715-4a81-b323-a82ebf559424)
+
 
 #### a hacked client made with eagler reborn's plugin api
 [![NodeJS with Webpack](https://github.com/radmanplays/MeteorX-ts/actions/workflows/webpack.yml/badge.svg)](https://github.com/radmanplays/MeteorX-ts/actions/workflows/webpack.yml)
