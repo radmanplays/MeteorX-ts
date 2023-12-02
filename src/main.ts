@@ -13,6 +13,7 @@ import { getplayerpos, updatePlayerPosition } from './utils/playerutils';
 import { registertps } from "./utils/tps";
 import { registerautosprint } from "./modules/autosprint"
 import { registerwtap } from "./modules/autowtap";
+import { registerspeed } from "./modules/speed";
 // display a message on console indicating that the client is loading
 console.log("[MeteorX] Loading client...")
 // register all modules and commands
@@ -29,5 +30,6 @@ registerFullbright()
 registertps()
 registerautosprint()
 registerwtap()
+registerspeed()
 // display a message on console indicating that the client has finished loading
 console.log("[MeteorX] Finished loading client!")

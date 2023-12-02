@@ -10,6 +10,7 @@ import { setautoclickertoggle, returnautoclickertoggle, setautoclickermode, retu
 import { setslipperyToggle, returnslipperytoggle } from "../modules/slippery";
 import { setautosprinttoggle, returnautosprinttoggle } from "../modules/autosprint";
 import { setautowtaptoggle, returnautowtaptoggle } from "../modules/autowtap";
+import { setspeedtoggle, returnspeedtoggle, setspeedvalue, returnspeedvalue } from "../modules/speed";
 export function registergui() {
   var guiVisible = false; // Variable to keep track of the visibility of the GUI
 
@@ -82,6 +83,12 @@ export function registergui() {
             <td style="user-select: text;background-color: #9d00ff30;">autowtap</td> 
             <td style="background-color: #9d00ff30;text-align: center;"></td><td style="background-color: gray;text-align: center;" id="autowtap">Activate</td> 
             </tr> 
+            <tr style="box-shadow: grey 0px 2px 0px;"> 
+            <td style="user-select: text;background-color: #9d00ff30;">speed</td> 
+             
+            <td style="background-color: #e59400;text-align: center;" id="speedsettings">Settings</td><td style="background-color: gray;text-align: center;" id="speed">Activate</td>
+
+            </tr> 
         </tbody></table>
         <a style="background: transparent; text-align: center; color: yellow; cursor: pointer; font-family: Minecraftia, sans-serif; text-decoration: underline; border: 0px; margin-right: 1rem; font-size: 1rem;" href="https://github.com/radmanplays/MeteorX-ts/issues/new" target="_blank">suggest a new feature/hack</a>
         <a style="background: transparent;text-align: center;color: orange;cursor: pointer;font-family: Minecraftia, sans-serif;text-decoration: underline;border: 0px;font-size: 1rem;" href="https://github.com/orgs/EaglerReborn/discussions/9" target="_blank">version Roadmap</a>
@@ -117,6 +124,8 @@ export function registergui() {
         var slipperyElement = document.getElementById("slippery");
         var autosprintElement = document.getElementById("autosprint"); 
         var autowtapElement = document.getElementById("autowtap");  
+        var speedElement = document.getElementById("speed");  
+        var speedsettings = document.getElementById("speedsettings"); 
         // if mouse cursor is hovering over the buttons set the cursor to pointer
         jetpackElement.addEventListener("mouseover", function() {
           jetpackElement.style.cursor = "pointer";
@@ -153,6 +162,12 @@ export function registergui() {
         });
         autowtapElement.addEventListener("mouseover", function() {
           autowtapElement.style.cursor = "pointer";
+        });
+        speedElement.addEventListener("mouseover", function() {
+          speedElement.style.cursor = "pointer";
+        });
+        speedsettings.addEventListener("mouseover", function() {
+          speedsettings.style.cursor = "pointer";
         });
         // if the gui opens and the variable for modules are false make the buttons say: "Activate"
         if (returnjetpacktoggle() === false) {
@@ -195,6 +210,10 @@ export function registergui() {
           autowtapElement.innerText = "Activate";
           autowtapElement.style.backgroundColor = "green";
         }
+        if (returnspeedtoggle() === false) {
+          speedElement.innerText = "Activate";
+          speedElement.style.backgroundColor = "green";
+        }
         // if the gui opens and the variable for modules are true make the buttons say: "Deactivate"
         if (returnjetpacktoggle() === true) {
           jetpackElement.innerText = "Deactivate";
@@ -235,6 +254,10 @@ export function registergui() {
         if (returnautowtaptoggle() === true) {
           autowtapElement.innerText = "Deactivate";
           autowtapElement.style.backgroundColor = "red";
+        }
+        if (returnspeedtoggle() === true) {
+          speedElement.innerText = "Deactivate";
+          speedElement.style.backgroundColor = "red";
         }
         // if the user clicks on the buttons and the variable for modules are false make the buttons say "Deactivate" and if its true make the buttons say "activate" whenever the user clicks on the button 
         stepElement.addEventListener("click", function(){
@@ -409,6 +432,32 @@ export function registergui() {
             setautowtaptoggle(false);
           }
         })
+        speedElement.addEventListener("click", function() {
+          if (returnspeedtoggle() !== true) {
+            speedElement.innerText = "Deactivate";
+            speedElement.style.backgroundColor = "red";
+            setspeedtoggle(true);
+          } else {
+            speedElement.innerText = "Activate";
+            speedElement.style.backgroundColor = "green";
+            setspeedtoggle(false); 
+          }
+        });
+        speedsettings.addEventListener("click", function(){
+          let speedvalue = prompt("how fast do you want to be? \ndefault: 2(double the speed) \ncurrent: " + returnspeedvalue())
+          var numspeedvalue = Number(speedvalue)
+          if (isNaN(numspeedvalue)){
+            alert("speed is NAN (not a number) setting speed to default")
+            setspeedvalue(2)
+          }
+          if (speedvalue == null || speedvalue == "") {
+            alert ("User cancelled the prompt.\n setting speed to default (2)")
+            setspeedvalue(2)
+          } else {
+            alert ("speed set to " + speedvalue)
+            setjetpackforce(numspeedvalue)
+          }
+        });
     }
     
 

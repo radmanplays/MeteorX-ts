@@ -1,12 +1,11 @@
 let jetpackguiactive: boolean = false;
-let jetpackforce: Number = 0.2;
+let jetpackforce: number = 0.2;
+var jetpackActive: boolean = false;
 import { displayToChat } from "../utils/chat"
 export function registerjetpack() {
     //@ts-ignore
     PluginAPI.require("player");
-    var jetpackActive: boolean = false;
     window.addEventListener("keydown", (event) => {
-        
     if (event.key.toLowerCase() === " ") {
         jetpackActive = true;
 
@@ -38,9 +37,12 @@ export function setjetpacktoggle(theBoolean: boolean) {
 export function returnjetpacktoggle(): boolean {
     return jetpackguiactive;
 }
-export function setjetpackforce(theNumber: Number) {
+export function setjetpackforce(theNumber: number) {
     jetpackforce = theNumber;
 }
-export function returnjetpackforce(): Number {
+export function returnjetpackforce(): number {
     return jetpackforce;
+}
+export function returnisjetpackflying(): boolean{
+    return jetpackActive
 }
