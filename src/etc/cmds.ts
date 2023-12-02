@@ -96,22 +96,24 @@ export function registercmds() {
                 message.substring(0, targetLength).trim().toLowerCase() === ".vclip" //And, the content from character 0 (first) to that of the length, trimmed and put to lowercase is ".makescroll"
               ) {
                 var vclipvalue = message.substring(targetLength+1);
-                if (isNaN(vclipvalue)){
-                    MeteorXerror("the amount of blocks needs to be a Number!")
-                }
                 //@ts-ignore
                 var isplayerriding = PluginAPI.player.isRiding()
                 if (isplayerriding === false){
-                    //@ts-ignore
-                    PluginAPI.player.setPosition({
+                    if (isNaN(vclipvalue)){
+                        MeteorXerror("the amount of blocks needs to be a Number!")
+                        return;
+                    }else{
                         //@ts-ignore
-                        x: PluginAPI.player.x,
-                        //@ts-ignore
-                        y: PluginAPI.player.y + vclipvalue,
-                        //@ts-ignore
-                        z: PluginAPI.player.z
-                    });
-                    MeteorXsuccess("successfully vclipped " + vclipvalue + " blocks!")
+                        PluginAPI.player.setPosition({
+                            //@ts-ignore
+                            x: PluginAPI.player.x,
+                            //@ts-ignore
+                            y: PluginAPI.player.y += vclipvalue,
+                            //@ts-ignore
+                            z: PluginAPI.player.z
+                        });
+                        MeteorXsuccess("successfully vclipped " + vclipvalue + " blocks!")
+                    }
                 }
                 if (isplayerriding === true){
                     MeteorXerror("you need to get off this mob/vehicle to use this command!")
