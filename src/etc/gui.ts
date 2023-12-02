@@ -10,7 +10,7 @@ import { setautoclickertoggle, returnautoclickertoggle, setautoclickermode, retu
 import { setslipperyToggle, returnslipperytoggle } from "../modules/slippery";
 import { setautosprinttoggle, returnautosprinttoggle } from "../modules/autosprint";
 import { setautowtaptoggle, returnautowtaptoggle } from "../modules/autowtap";
-import { setspeedtoggle, returnspeedtoggle, setspeedvalue, returnspeedvalue } from "../modules/speed";
+import { setspeedtoggle, returnspeedtoggle, setspeedvalue, returnspeedvalue } from '../modules/speed';
 export function registergui() {
   var guiVisible = false; // Variable to keep track of the visibility of the GUI
 
@@ -455,7 +455,7 @@ export function registergui() {
             setspeedvalue(2)
           } else {
             alert ("speed set to " + speedvalue)
-            setjetpackforce(numspeedvalue)
+            setspeedvalue(numspeedvalue)
           }
         });
     }
