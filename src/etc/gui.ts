@@ -191,7 +191,7 @@ export function registergui() {
           autosprintElement.innerText = "Activate";
           autosprintElement.style.backgroundColor = "green";
         }
-        if (returnautosprinttoggle() === false) {
+        if (returnautowtaptoggle() === false) {
           autowtapElement.innerText = "Activate";
           autowtapElement.style.backgroundColor = "green";
         }
@@ -379,6 +379,11 @@ export function registergui() {
         });
         autosprintElement.addEventListener("click", function() {
           if (returnautosprinttoggle() !== true) {
+            if (returnautowtaptoggle() == true){
+              autowtapElement.innerText = "Activate";
+              autowtapElement.style.backgroundColor = "green";
+              setautowtaptoggle(false);
+            }
             autosprintElement.innerText = "Deactivate";
             autosprintElement.style.backgroundColor = "red";
             setautosprinttoggle(true);
@@ -387,14 +392,14 @@ export function registergui() {
             autosprintElement.style.backgroundColor = "green";
             setautosprinttoggle(false);
           }
-          if (returnautowtaptoggle() == true&&returnautosprinttoggle() == true){
-            autowtapElement.innerText = "Activate";
-            autowtapElement.style.backgroundColor = "green";
-            setautowtaptoggle(false);
-          }
         })
         autowtapElement.addEventListener("click", function() {
           if (returnautowtaptoggle() !== true) {
+            if (returnautosprinttoggle() == true){
+              autosprintElement.innerText = "Activate";
+              autosprintElement.style.backgroundColor = "green";
+              setautosprinttoggle(false);
+            }
             autowtapElement.innerText = "Deactivate";
             autowtapElement.style.backgroundColor = "red";
             setautowtaptoggle(true);
@@ -402,11 +407,6 @@ export function registergui() {
             autowtapElement.innerText = "Activate";
             autowtapElement.style.backgroundColor = "green";
             setautowtaptoggle(false);
-          }
-          if (returnautosprinttoggle() == true&&returnautowtaptoggle() == true){
-            autosprintElement.innerText = "Activate";
-            autosprintElement.style.backgroundColor = "green";
-            setautosprinttoggle(false);
           }
         })
     }
