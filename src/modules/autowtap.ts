@@ -1,7 +1,7 @@
 let autowtapactive: boolean = false
 export function registerwtap(){
     let cooldown: number = 0
-    //@ts-ignore
+    //@ts-ignore 
     PluginAPI.addEventListener("update", ()=>{
         if (autowtapactive){
             cooldown =- 1
