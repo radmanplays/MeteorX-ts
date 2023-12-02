@@ -5,22 +5,32 @@ export function registerspeed(){
     //@ts-ignore
     PluginAPI.require("player")
     //@ts-ignore
+    var prex = PluginAPI.player.motionx
+    //@ts-ignore
+    var prez = PluginAPI.player.motionz
+    //@ts-ignore
     PluginAPI.addEventListener("update", ()=>{
         //@ts-ignore
         if (PluginAPI.player.onGround){
-            if (speedactive){
+            if (speedactive == true){
                 //@ts-ignore
                 PluginAPI.player.motionx *= speedvalue
                 //@ts-ignore
                 PluginAPI.player.motionz *= speedvalue
             }
         } else if (returnisjetpackflying()&&returnjetpacktoggle){ // this makes flying with jetpack more fun :D (and faster)
-            if (speedactive){
+            if (speedactive == true){
                 //@ts-ignore
                 PluginAPI.player.motionx *= speedvalue
                 //@ts-ignore
                 PluginAPI.player.motionz *= speedvalue
             }
+        }
+        if (speedactive == false){
+            //@ts-ignore
+            PluginAPI.player.motionx = prex
+            //@ts-ignore
+            PluginAPI.player.motionz = prez
         }
     });
 }
