@@ -9,9 +9,6 @@ var version = "v1.1";
 var cmds = ".version , .help , .ip , .uwuify , .mypos, .vclip, .tps, .copycords"
 var serverip = null;
 //@ts-ignore
-PluginAPI.addEventListener("update", ()=>{
-    var tps:Number = gettps()
-});
 export function registercmds() {
     //@ts-ignore
     PluginAPI.addEventListener("packetjoingame", (ev) => {
@@ -99,6 +96,9 @@ export function registercmds() {
                 message.substring(0, targetLength).trim().toLowerCase() === ".vclip" //And, the content from character 0 (first) to that of the length, trimmed and put to lowercase is ".makescroll"
               ) {
                 var vclipvalue = message.substring(targetLength+1);
+                if (isNaN(vclipvalue)){
+                    MeteorXerror("the amount of blocks needs to be a Number!")
+                }
                 //@ts-ignore
                 var isplayerriding = PluginAPI.player.isRiding()
                 if (isplayerriding === false){
@@ -116,16 +116,13 @@ export function registercmds() {
                 if (isplayerriding === true){
                     MeteorXerror("you need to get off this mob/vehicle to use this command!")
                 }
-                if (isNaN(vclipvalue)){
-                    MeteorXerror("the amount of blocks needs to be a Number!")
-                }
             }
             event.preventDefault = true;
         }
         if(event.message.toLowerCase() === ".tps"){ //If they typed '.tps', or '.TPS', or... etc.
             event.preventDefault = true; //Prevent sending the chat message.
             //@ts-ignore
-            MeteorXlog("§9 Current server tps is §5~" + tps.toFixed(1)); //Print the TPS to chat.
+            MeteorXlog("§9 Current server tps is §5~" + gettps().toFixed(1)); //Print the TPS to chat.
         }
         if (event.message === ".copycords") {
             //@ts-ignore
