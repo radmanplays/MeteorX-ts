@@ -14,23 +14,23 @@ export function registerspeed(){
         if (PluginAPI.player.onGround){
             if (speedactive == true){
                 //@ts-ignore
-                PluginAPI.player.motionx *= speedvalue
+                PluginAPI.player.motionX *= speedvalue
                 //@ts-ignore
-                PluginAPI.player.motionz *= speedvalue
+                PluginAPI.player.motionZ *= speedvalue
             }
         } else if (returnisjetpackflying()&&returnjetpacktoggle){ // this makes flying with jetpack more fun :D (and faster)
             if (speedactive == true){
                 //@ts-ignore
-                PluginAPI.player.motionx *= speedvalue
+                PluginAPI.player.motionX *= speedvalue
                 //@ts-ignore
-                PluginAPI.player.motionz *= speedvalue
+                PluginAPI.player.motionZ *= speedvalue
             }
         }
         if (speedactive == false){
             //@ts-ignore
-            PluginAPI.player.motionx = prex
+            PluginAPI.player.motionX = prex
             //@ts-ignore
-            PluginAPI.player.motionz = prez
+            PluginAPI.player.motionZ = prez
         }
     });
 }
