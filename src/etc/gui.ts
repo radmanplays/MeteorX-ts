@@ -116,7 +116,7 @@ export function registergui() {
         var autoclickerElement = document.getElementById("autoclicker"); 
         var slipperyElement = document.getElementById("slippery");
         var autosprintElement = document.getElementById("autosprint"); 
-        var autowtapElement = document.getElementById("autosprint");  
+        var autowtapElement = document.getElementById("autowtap");  
         // if mouse cursor is hovering over the buttons set the cursor to pointer
         jetpackElement.addEventListener("mouseover", function() {
           jetpackElement.style.cursor = "pointer";
