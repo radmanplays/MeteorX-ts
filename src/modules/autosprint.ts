@@ -1,9 +1,13 @@
 let autosprintactive: boolean = false
 export function registerautosprint(){
     //@ts-ignore
+    PluginAPI.require("player")
+    //@ts-ignore
     PluginAPI.addEventListener("update", ()=>{
-        //@ts-ignore
-        PluginAPI.player.setSprinting({flag: true})
+        if (autosprintactive){
+            //@ts-ignore
+            PluginAPI.player.setSprinting({flag: true})
+        }
     });
 }
 export function setautosprinttoggle(theBoolean: boolean) {

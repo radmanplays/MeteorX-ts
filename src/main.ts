@@ -11,6 +11,8 @@ import { registernoweb } from "./modules/noweb"
 // import { registertaco, displaytaco } from "./etc/taco";
 import { getplayerpos, updatePlayerPosition } from './utils/playerutils';
 import { registertps } from "./utils/tps";
+import { registerautosprint } from "./modules/autosprint"
+import { registerwtap } from "./modules/autowtap";
 // display a message on console indicating that the client is loading
 console.log("[MeteorX] Loading client...")
 // register all modules and commands
@@ -25,5 +27,7 @@ registerFullbright()
 // registertaco()
 // displaytaco()
 registertps()
+registerautosprint()
+registerwtap()
 // display a message on console indicating that the client has finished loading
 console.log("[MeteorX] Finished loading client!")
