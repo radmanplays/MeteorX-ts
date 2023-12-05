@@ -1,19 +1,18 @@
 // import modules and commands...
 import { displayToChat } from "../utils/chat";
-import { setStepToggle, returnStepToggle } from "../modules/step";
-import { setSpiderToggle, returnSpiderToggle } from "../modules/spider";
-import { setNofallToggle, returnNofallToggle } from "../modules/nofall";
-import { setFullbrightToggle, returnFullbrightToggle } from "../modules/fullbright";
-import { setjetpacktoggle, returnjetpacktoggle, setjetpackforce, returnjetpackforce } from '../modules/jetpack';
-import { setnowebToggle, returnnowebToggle } from "../modules/noweb";
-import { setautoclickertoggle, returnautoclickertoggle, setautoclickermode, returnautoclickermode, setleftclickdelay, returnleftclickdelay, setrightclickdelay, returnrightclickdelay } from '../modules/autoclicker';
-import { setslipperyToggle, returnslipperytoggle } from "../modules/slippery";
-import { setautosprinttoggle, returnautosprinttoggle } from "../modules/autosprint";
-import { setautowtaptoggle, returnautowtaptoggle } from "../modules/autowtap";
-import { setspeedtoggle, returnspeedtoggle, setspeedvalue, returnspeedvalue } from '../modules/speed';
+import { setStepToggle, returnStepToggle } from "../modules/player/step";
+import { setSpiderToggle, returnSpiderToggle } from "../modules/player/spider";
+import { setNofallToggle, returnNofallToggle } from "../modules/player/nofall";
+import { setFullbrightToggle, returnFullbrightToggle } from "../modules/render/fullbright";
+import { setjetpacktoggle, returnjetpacktoggle, setjetpackforce, returnjetpackforce } from '../modules/movement/jetpack';
+import { setnowebToggle, returnnowebToggle } from "../modules/player/noweb";
+import { setautoclickertoggle, returnautoclickertoggle, setautoclickermode, returnautoclickermode, setleftclickdelay, returnleftclickdelay, setrightclickdelay, returnrightclickdelay } from '../modules/player/autoclicker';
+import { setslipperyToggle, returnslipperytoggle } from "../modules/movement/slippery";
+import { setautosprinttoggle, returnautosprinttoggle } from "../modules/player/autosprint";
+import { setautowtaptoggle, returnautowtaptoggle } from "../modules/player/autowtap";
+import { setspeedtoggle, returnspeedtoggle, setspeedvalue, returnspeedvalue } from '../modules/movement/speed';
+var guiVisible:boolean = false; // Variable to keep track of the visibility of the GUI
 export function registergui() {
-  var guiVisible = false; // Variable to keep track of the visibility of the GUI
-
   function toggleGui() { // Function to toggle the GUI visibility
       if (guiVisible) { // If the GUI is visible
           hideGui(); // Hide the GUI
@@ -39,12 +38,11 @@ export function registergui() {
             <tbody><tr style="background: rgb(80, 80, 80);">
                 <th style="text-align: center;">Hacks</th>
                 
-            <th style="text-align: center; width: 15%;">Settings</th><th style="text-align: center; width: 15%;">Activate/Deactivate</th></tr>
+            <th style="text-align: center; width: 15%;">Settings</th><th style="text-align: center; width: 15%;" id="hacks">Activate/Deactivate</th></tr>
             <tr style="box-shadow: grey 0px 2px 0px;">
-                <td style="user-select: text;background-color: #9d00ff30;">Jetpack (hold space to fly) 🎒💨</td>
-                                
-
-            <td style="background-color: #e59400;text-align: center;" id="jetpacksettings">Settings</td><td style="background-color: gray;text-align: center;" id="jetpack">Activate</td></tr>
+            <td style="user-select: text;background-color: #9d00ff30;">Jetpack (hold space to fly) 🎒💨</td>
+            <td style="background-color: #e59400;text-align: center;" id="jetpacksettings">Settings</td><td style="background-color: gray;text-align: center;" id="jetpack">Activate</td>
+            </tr>
             <tr style="box-shadow: grey 0px 2px 0px;">
                 <td style="user-select: text;background-color: #9d00ff30;">Step</td>
                 <td style="background-color: #9d00ff30;text-align: center;"></td><td style="background-color: gray; text-align: center;" id="step">Activate</td>
@@ -479,4 +477,7 @@ export function registergui() {
         hideGui(); // Hide the GUI
       }
     });
+}
+export function returnguivisible(){
+  return guiVisible
 }

@@ -1,5 +1,5 @@
 //added by @OtterCodes102
-import { displayToChat } from "../utils/chat"
+import { displayToChat } from "../../utils/chat"
 let stepToggle: boolean = false;
 export function registerStep() {
     

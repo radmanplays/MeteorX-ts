@@ -1,7 +1,7 @@
 let jetpackguiactive: boolean = false;
 let jetpackforce: number = 0.2;
 var jetpackActive: boolean = false;
-import { displayToChat } from "../utils/chat"
+import { displayToChat } from "../../utils/chat"
 export function registerjetpack() {
     //@ts-ignore
     PluginAPI.require("player");
