@@ -35,8 +35,6 @@ try{// make it so eaglerreborn dosnt crash when a error happens
     registerspeed()
     // display a message on console indicating that the client has finished loading
     console.log("[MeteorX] Finished loading client!")
-    registermodule({name: "test"})
-
 }  catch (error) {
     // handle any errors that occur during execution
     console.error("[MeteorX] Error during client execution:", error);
