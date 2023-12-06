@@ -7,6 +7,8 @@ import { copy } from "../utils/clipboardutils";
 
 var version = "v1.1";
 var cmds = ".version , .help , .ip , .uwuify , .mypos, .vclip, .tps, .copycords"
+var cmdsArray = cmds.split(', ');
+var cmdsforcode = cmdsArray.join('||');
 var serverip = null;
 //@ts-ignore
 export function registercmds() {
@@ -16,6 +18,10 @@ export function registercmds() {
     });
     //@ts-ignore
     PluginAPI.addEventListener("sendchatmessage", function(event) {
+        if (event.message.startsWith(".")&&event.message === cmdsforcode){
+            MeteorXerror("unknown command! do .help for a list of available commands.")
+            event.preventDefault = true;
+        }
         if (event.message === ".version") {
             MeteorXlog("you are currently using the " + version + " version of MeteorX.");
             event.preventDefault = true;
