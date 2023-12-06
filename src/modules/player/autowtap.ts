@@ -8,10 +8,14 @@ export function registerwtap(){
             //@ts-ignore
             PluginAPI.player.setSprinting({flag: true})
             //@ts-ignore
+            PluginAPI.player.reload()
+            //@ts-ignore
             if (PluginAPI.player.isSwingInProgress){
                 if (cooldown < 0) {
                     //@ts-ignore
                     PluginAPI.player.setSprinting({flag: false})
+                    //@ts-ignore
+                    PluginAPI.player.reload()
                     cooldown = 3
                 }
             }

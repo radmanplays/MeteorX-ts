@@ -112,6 +112,8 @@ export function registercmds() {
                             //@ts-ignore
                             z: PluginAPI.player.z
                         });
+                        //@ts-ignore
+                        PluginAPI.player.reload()
                         MeteorXsuccess("successfully vclipped " + vclipvalue + " blocks!")
                     }
                 }

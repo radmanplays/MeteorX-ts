@@ -7,6 +7,13 @@ export function registerautosprint(){
         if (autosprintactive){
             //@ts-ignore
             PluginAPI.player.setSprinting({flag: true})
+            //@ts-ignore
+            PluginAPI.player.reload()
+        } else if (!autosprintactive){
+            //@ts-ignore
+            PluginAPI.player.setSprinting({flag: false})
+            //@ts-ignore
+            PluginAPI.player.reload()
         }
     });
 }
