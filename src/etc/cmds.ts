@@ -1,15 +1,26 @@
 const owoify = require('owoify-js').default
-import { MeteorXlog, MeteorXerror, MeteorXfailure, MeteorXsuccess, MeteorXwarning } from '../utils/chatutils';
+import { MeteorXlog, MeteorXerror, MeteorXfailure, MeteorXsuccess, MeteorXwarning, say } from '../utils/chatutils';
 import { settacoToggle, returntacoToggle } from "./taco";
 import { getplayerpos, updatePlayerPosition, addtoplayerxpos, addtoplayerypos, addtoplayerzpos } from "../utils/playerutils";
 import { gettps } from "../utils/tps";
 import { copy } from "../utils/clipboardutils";
+import { countLetters } from "../utils/argscounter";
+var normalizeSpace = require('normalize-space');
 
 var version = "v1.1";
-var cmds = ".version , .help , .ip , .uwuify , .mypos, .vclip, .tps, .copycords"
+var cmds = ".version , .help , .ip , .uwuify , .mypos, .vclip, .tps, .copycords, .annoy"
 var cmdsArray = cmds.split(', ');
 var cmdsforcode = cmdsArray.join('||');
 var serverip = null;
+var annoyenabled = false;
+var chatmessage:string = null;
+var uwulevel:number = 1
+function repeat(message, prefix){
+    var beginIndex:number = message.indexOf(prefix) + prefix.length();
+    var repeated:string = message.substring(beginIndex).trim();
+    repeated = normalizeSpace(repeated);
+    say(repeated)
+}
 //@ts-ignore
 export function registercmds() {
     //@ts-ignore
@@ -17,8 +28,12 @@ export function registercmds() {
         serverip = ev.ip;
     });
     //@ts-ignore
+    PluginAPI.addEventListener("packetchat", (ev) => {
+        chatmessage = ev.chat;
+    });
+    //@ts-ignore
     PluginAPI.addEventListener("sendchatmessage", function(event) {
-        if (event.message.startsWith(".")&&event.message === cmdsforcode){
+        if (event.message.startsWith(".")&&event.message !== cmdsforcode){
             MeteorXerror("unknown command! do .help for a list of available commands.")
             event.preventDefault = true;
         }
@@ -36,13 +51,34 @@ export function registercmds() {
             MeteorXlog("the ip of the current server you are playing: " + serverip + " ");
             event.preventDefault = true;
         }
+        if (event.message === ".uwuifylevel") {
+            MeteorXlog("usage: .uwuifylevel [1,2 or 3 (3 is the highest and 1 is the lowest level)]")
+            event.preventDefault = true;
+        }
+        if (event.message === ".uwulevel ") {
+            var targetLength4 = ".uwulevel".length;
+            var args = event.message.toString().trim();
+            if ( //If
+                message.length > targetLength4 && //The length of the message is longer than the target length
+                message.substring(0, targetLength4).trim().toLowerCase() === ".uwulevel" //And, the content from character 0 (first) to that of the length, trimmed and put to lowercase is ".makescroll"
+              ) {
+                var level = args.substring(targetLength4+1);
+                if (isNaN(level)){
+                    MeteorXerror("uwulevel needs to be a Number! (1,2 or 3)")
+                    return;
+                } else {
+                    uwulevel = Number(level)
+                }
+                
+            }
+            event.preventDefault = true;
+        }
         if (event.message === ".uwuify") {
             //@ts-ignore
             MeteorXlog("usage: .uwuify [message]");
             event.preventDefault = true;
         }
         if (event.message.startsWith(".uwuify ")) {
-            //@ts-ignore
             var targetLength = ".uwuify".length;
             var message = event.message.toString().trim();
             if ( //If
@@ -50,7 +86,15 @@ export function registercmds() {
                 message.substring(0, targetLength).trim().toLowerCase() === ".uwuify" //And, the content from character 0 (first) to that of the length, trimmed and put to lowercase is ".makescroll"
               ) {
                 var actualchatmessage = message.substring(targetLength+1);
-                var uwumessage = owoify(actualchatmessage)
+                if (uwulevel == 1){
+                    var uwumessage = owoify(actualchatmessage, 'owo')
+                }
+                if (uwulevel == 2){
+                    var uwumessage = owoify(actualchatmessage, 'uwu')
+                }
+                if (uwulevel == 3){
+                    var uwumessage = owoify(actualchatmessage, 'uvu')
+                }
                 //@ts-ignore
                 PluginAPI.network.sendPacketChatMessage({messageIn: uwumessage})
             }
@@ -95,13 +139,13 @@ export function registercmds() {
         if (event.message.startsWith(".vclip ")) {
             // TODO : make it so the command only accepts numbers (!isNAN()) [done]
             //@ts-ignore
-            var targetLength = ".vclip".length;
+            var targetLength2 = ".vclip".length;
             var message = event.message.toString().trim();
             if ( //If
-                message.length > targetLength && //The length of the message is longer than the target length
-                message.substring(0, targetLength).trim().toLowerCase() === ".vclip" //And, the content from character 0 (first) to that of the length, trimmed and put to lowercase is ".makescroll"
+                message.length > targetLength2 && //The length of the message is longer than the target length
+                message.substring(0, targetLength2).trim().toLowerCase() === ".vclip" //And, the content from character 0 (first) to that of the length, trimmed and put to lowercase is ".makescroll"
               ) {
-                var vclipvalue = message.substring(targetLength+1);
+                var vclipvalue = message.substring(targetLength2+1);
                 //@ts-ignore
                 var isplayerriding = PluginAPI.player.isRiding()
                 if (isplayerriding === false){
@@ -144,6 +188,63 @@ export function registercmds() {
             var playerz = Math.trunc(getplayerpos.z);
             copy(" x= " + playerx + " y= " + playery + " z= " + playerz)
             MeteorXsuccess("current cords copied to clipboard!");
+            event.preventDefault = true;
+        }
+        if (event.message === ".annoy") {
+            if (!annoyenabled){
+                MeteorXerror(".annoy is already turned off.")
+            } else {
+                annoyenabled = false
+            }
+
+            event.preventDefault = true;
+        }
+        if (event.message === ".annoy ") {
+            //https://github.com/Wurst-Imperium/Wurst7/blob/master/src/main/java/net/wurstclient/commands/AnnoyCmd.java
+            var targetLength3 = ".annoy".length;
+            var args = event.message.toString().trim();
+            if ( //If
+                message.length > targetLength3 && //The length of the message is longer than the target length
+                message.substring(0, targetLength3).trim().toLowerCase() === ".annoy" //And, the content from character 0 (first) to that of the length, trimmed and put to lowercase is ".makescroll"
+              ) {
+                var playername = args.substring(targetLength3+1);
+                if (countLetters(playername) > 0) {
+                    if (annoyenabled){
+                        annoyenabled = false;
+                    }
+                    //@ts-ignore
+                    if (PluginAPI.player.getName()==playername){
+                        MeteorXerror("Annoying yourself is a bad idea!")
+                    } else {
+                        MeteorXlog("Now annoying " + playername + ".");
+                        annoyenabled = true;
+                    }
+    
+                } else{
+                    if (!annoyenabled){
+                        MeteorXerror(".annoy is already turned off.")
+                    } else {
+                        annoyenabled = false
+                    }
+                }
+                //@ts-ignore
+                PluginAPI.addEventListener("packetchat", (ev) => {
+                    if (annoyenabled){
+                        if(chatmessage.startsWith("§c[§6MeteorX§c]§f"||"§c[§6§lWARNING§c]§f"||"§c[§4§lERROR§c]§f"||"§a[§2§lSUCCESS§a]§f"||"§c[§4§lFAILURE§c]§f")){
+                            return;
+                        }
+                        var prefix1 = playername + ">"
+                        if (chatmessage.includes("<" + prefix1)||chatmessage.includes(prefix1)){
+                            repeat(message, prefix1);
+                            return;
+                        }
+                        var prefix2 = playername + ":";
+                        if(chatmessage.includes("] " + prefix2)||chatmessage.includes("]" + prefix2)){
+                            repeat(message, prefix2);
+                        }
+                    }
+                });
+            }
             event.preventDefault = true;
         }
     });

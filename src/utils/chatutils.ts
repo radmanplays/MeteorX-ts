@@ -14,3 +14,7 @@ export function MeteorXsuccess(message: string) {
 export function MeteorXfailure(message: string) {
     displayToChat("§c[§4§lFAILURE§c]§f " + message)
 }
+export function say(message: string){
+    //@ts-ignore
+    PluginAPI.network.sendPacketChatMessage({messageIn: message})
+}

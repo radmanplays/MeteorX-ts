@@ -12,8 +12,8 @@ import { registernoweb } from "./modules/player/noweb"
 import { getplayerpos, updatePlayerPosition } from './utils/playerutils';
 import { registertps } from "./utils/tps";
 import { registerautosprint } from "./modules/player/autosprint"
-import { registerwtap } from "./modules/player/autowtap";
-import { registerspeed } from "./modules/movement/speed";
+/*import { registerwtap } from "./modules/player/autowtap";
+import { registerspeed } from "./modules/movement/speed";*/
 import { registermodule } from "./modules/modules";
 try{// make it so eaglerreborn dosnt crash when a error happens
     // display a message on console indicating that the client is loading
@@ -31,8 +31,6 @@ try{// make it so eaglerreborn dosnt crash when a error happens
     // displaytaco()
     registertps()
     registerautosprint()
-    registerwtap()
-    registerspeed()
     // display a message on console indicating that the client has finished loading
     console.log("[MeteorX] Finished loading client!")
 }  catch (error) {
