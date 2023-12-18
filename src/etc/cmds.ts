@@ -6,6 +6,7 @@ import { gettps } from "../utils/tps";
 import { copy } from "../utils/clipboardutils";
 import { countLetters } from "../utils/argscounter";
 var normalizeSpace = require('normalize-space');
+import { rand, selectRandom } from "../utils/randomutil";
 
 var version = "v1.1";
 var cmds = ".version , .help , .ip , .uwuify , .mypos, .vclip, .tps, .copycords, .annoy"
@@ -100,18 +101,11 @@ export function registercmds() {
             }
             event.preventDefault = true;
         }
-        /*
+/*
         if (event.message === ".taco") {
             if (returntacoToggle() !== true) {
-                var random = Math.floor(Math.random() * 3);
-                if (random == 1) {
-                    //@ts-ignore
-                    MeteorXlog("taco!");
-                }
-                if (random == 2) {
-                    //@ts-ignore
-                    MeteorXlog("a wild taco has appeared!");
-                }
+                var randomthingy = ["taco!", "a wild taco has appeared!"];
+                MeteorXlog(selectRandom(randomthingy));
                 settacoToggle(true);
               } else {
                 //@ts-ignore
