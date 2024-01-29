@@ -5,7 +5,6 @@ import { getplayerpos, updatePlayerPosition, addtoplayerxpos, addtoplayerypos, a
 import { gettps } from "../utils/tps";
 import { copy } from "../utils/clipboardutils";
 import { countLetters } from "../utils/argscounter";
-var normalizeSpace = require('normalize-space');
 import { rand, selectRandom } from "../utils/randomutil";
 
 var version = "v1.1";
@@ -16,12 +15,6 @@ var serverip = null;
 var annoyenabled = false;
 var chatmessage:string = null;
 var uwulevel:number = 1
-function repeat(message, prefix){
-    var beginIndex:number = message.indexOf(prefix) + prefix.length();
-    var repeated:string = message.substring(beginIndex).trim();
-    repeated = normalizeSpace(repeated);
-    say(repeated)
-}
 //@ts-ignore
 export function registercmds() {
     //@ts-ignore
@@ -229,12 +222,10 @@ export function registercmds() {
                         }
                         var prefix1 = playername + ">"
                         if (chatmessage.includes("<" + prefix1)||chatmessage.includes(prefix1)){
-                            repeat(message, prefix1);
                             return;
                         }
                         var prefix2 = playername + ":";
                         if(chatmessage.includes("] " + prefix2)||chatmessage.includes("]" + prefix2)){
-                            repeat(message, prefix2);
                         }
                     }
                 });
