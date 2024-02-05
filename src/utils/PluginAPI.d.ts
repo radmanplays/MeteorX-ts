@@ -17,6 +17,7 @@ declare namespace PluginAPI {
         function isEntityAlive(): boolean;
         function isEntityInsideOpaqueBlock(): boolean;
         function isImmuneToExplosions(): boolean;
+        //@ts-ignore
         function isImmuneToFire(): boolean;
         function isInLava(): boolean;
         function isInWater(): boolean;
@@ -66,6 +67,7 @@ declare namespace PluginAPI {
         let isAirBorne: boolean;
         let ticksExisted: number;
         let invulnerable: boolean;
+        //@ts-ignore
         let isImmuneToFire: boolean;
         let isOutsideBorder: boolean;
         let entityCollisionReduction: number;
